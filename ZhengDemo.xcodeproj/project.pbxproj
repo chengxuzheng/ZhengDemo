@@ -21,7 +21,6 @@
 		0FE340D71EA9D3BE00122055 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE340D61EA9D3BE00122055 /* UIKit.framework */; };
 		0FE340DF1EA9DC4400122055 /* CXLeftSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340DE1EA9DC4400122055 /* CXLeftSlidingViewController.m */; };
 		0FE340E71EA9FA9000122055 /* CXRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340E61EA9FA9000122055 /* CXRevealViewController.m */; };
-		0FE3414E1EAA08C300122055 /* libZheng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE3414D1EAA087D00122055 /* libZheng.a */; };
 		37FB54BE81F6DC7269F5B124 /* libPods-ZhengDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FF6459E8CDE79DCAA45794 /* libPods-ZhengDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -39,13 +38,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0FE340791EA9A08D00122055;
 			remoteInfo = ZhengDemo;
-		};
-		0FE3414C1EAA087D00122055 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0FE341481EAA087D00122055 /* Zheng.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0FE3413C1EAA083C00122055;
-			remoteInfo = Zheng;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -80,7 +72,6 @@
 		0FE340DE1EA9DC4400122055 /* CXLeftSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXLeftSlidingViewController.m; sourceTree = "<group>"; };
 		0FE340E51EA9FA9000122055 /* CXRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXRevealViewController.h; sourceTree = "<group>"; };
 		0FE340E61EA9FA9000122055 /* CXRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXRevealViewController.m; sourceTree = "<group>"; };
-		0FE341481EAA087D00122055 /* Zheng.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Zheng.xcodeproj; path = Zheng/Zheng.xcodeproj; sourceTree = "<group>"; };
 		89932AF98856467ACCEDEF04 /* Pods-ZhengDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhengDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZhengDemo/Pods-ZhengDemo.release.xcconfig"; sourceTree = "<group>"; };
 		A7FC1F32D68A56003A3F10B5 /* Pods-ZhengDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhengDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhengDemo/Pods-ZhengDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B3FF6459E8CDE79DCAA45794 /* libPods-ZhengDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZhengDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,7 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FE3414E1EAA08C300122055 /* libZheng.a in Frameworks */,
 				0FE340D71EA9D3BE00122055 /* UIKit.framework in Frameworks */,
 				37FB54BE81F6DC7269F5B124 /* libPods-ZhengDemo.a in Frameworks */,
 			);
@@ -117,7 +107,6 @@
 		0FE340711EA9A08C00122055 = {
 			isa = PBXGroup;
 			children = (
-				0FE341481EAA087D00122055 /* Zheng.xcodeproj */,
 				0FE3407C1EA9A08D00122055 /* ZhengDemo */,
 				0FE340961EA9A08D00122055 /* ZhengDemoTests */,
 				0FE340A11EA9A08D00122055 /* ZhengDemoUITests */,
@@ -312,14 +301,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		0FE341491EAA087D00122055 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0FE3414D1EAA087D00122055 /* libZheng.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		3428437A8485135A6C4C5234 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,12 +415,6 @@
 			mainGroup = 0FE340711EA9A08C00122055;
 			productRefGroup = 0FE3407B1EA9A08D00122055 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 0FE341491EAA087D00122055 /* Products */;
-					ProjectRef = 0FE341481EAA087D00122055 /* Zheng.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				0FE340791EA9A08D00122055 /* ZhengDemo */,
@@ -448,16 +423,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		0FE3414D1EAA087D00122055 /* libZheng.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libZheng.a;
-			remoteRef = 0FE3414C1EAA087D00122055 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0FE340781EA9A08D00122055 /* Resources */ = {
