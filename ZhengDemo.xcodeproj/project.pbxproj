@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0FE3407F1EA9A08D00122055 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3407E1EA9A08D00122055 /* main.m */; };
-		0FE340821EA9A08D00122055 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340811EA9A08D00122055 /* AppDelegate.m */; };
-		0FE340851EA9A08D00122055 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340841EA9A08D00122055 /* ViewController.m */; };
-		0FE340881EA9A08D00122055 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FE340861EA9A08D00122055 /* Main.storyboard */; };
 		0FE3408A1EA9A08D00122055 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FE340891EA9A08D00122055 /* Assets.xcassets */; };
-		0FE3408D1EA9A08D00122055 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3408B1EA9A08D00122055 /* LaunchScreen.storyboard */; };
 		0FE340981EA9A08D00122055 /* ZhengDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340971EA9A08D00122055 /* ZhengDemoTests.m */; };
 		0FE340A31EA9A08D00122055 /* ZhengDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340A21EA9A08D00122055 /* ZhengDemoUITests.m */; };
+		0FE340B31EA9A1D900122055 /* CXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340B21EA9A1D900122055 /* CXAppDelegate.m */; };
+		0FE340BF1EA9A84000122055 /* CXMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340BE1EA9A84000122055 /* CXMainTabBarController.m */; };
+		0FE340C11EA9AC0B00122055 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FE340C01EA9AC0B00122055 /* Launch Screen.storyboard */; };
+		37FB54BE81F6DC7269F5B124 /* libPods-ZhengDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FF6459E8CDE79DCAA45794 /* libPods-ZhengDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,13 +37,7 @@
 /* Begin PBXFileReference section */
 		0FE3407A1EA9A08D00122055 /* ZhengDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhengDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FE3407E1EA9A08D00122055 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0FE340801EA9A08D00122055 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		0FE340811EA9A08D00122055 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0FE340831EA9A08D00122055 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0FE340841EA9A08D00122055 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		0FE340871EA9A08D00122055 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0FE340891EA9A08D00122055 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0FE3408C1EA9A08D00122055 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FE3408E1EA9A08D00122055 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FE340931EA9A08D00122055 /* ZhengDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZhengDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FE340971EA9A08D00122055 /* ZhengDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZhengDemoTests.m; sourceTree = "<group>"; };
@@ -51,6 +45,15 @@
 		0FE3409E1EA9A08D00122055 /* ZhengDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZhengDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FE340A21EA9A08D00122055 /* ZhengDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZhengDemoUITests.m; sourceTree = "<group>"; };
 		0FE340A41EA9A08D00122055 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FE340B11EA9A1D900122055 /* CXAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXAppDelegate.h; sourceTree = "<group>"; };
+		0FE340B21EA9A1D900122055 /* CXAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXAppDelegate.m; sourceTree = "<group>"; };
+		0FE340B61EA9A72E00122055 /* ZhengDemo.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhengDemo.pch; sourceTree = "<group>"; };
+		0FE340BD1EA9A84000122055 /* CXMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMainTabBarController.h; sourceTree = "<group>"; };
+		0FE340BE1EA9A84000122055 /* CXMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMainTabBarController.m; sourceTree = "<group>"; };
+		0FE340C01EA9AC0B00122055 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		89932AF98856467ACCEDEF04 /* Pods-ZhengDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhengDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZhengDemo/Pods-ZhengDemo.release.xcconfig"; sourceTree = "<group>"; };
+		A7FC1F32D68A56003A3F10B5 /* Pods-ZhengDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhengDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhengDemo/Pods-ZhengDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		B3FF6459E8CDE79DCAA45794 /* libPods-ZhengDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZhengDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37FB54BE81F6DC7269F5B124 /* libPods-ZhengDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +89,8 @@
 				0FE340961EA9A08D00122055 /* ZhengDemoTests */,
 				0FE340A11EA9A08D00122055 /* ZhengDemoUITests */,
 				0FE3407B1EA9A08D00122055 /* Products */,
+				8EC194148AE8E5688AC8DABC /* Pods */,
+				3428437A8485135A6C4C5234 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,15 +107,14 @@
 		0FE3407C1EA9A08D00122055 /* ZhengDemo */ = {
 			isa = PBXGroup;
 			children = (
-				0FE340801EA9A08D00122055 /* AppDelegate.h */,
-				0FE340811EA9A08D00122055 /* AppDelegate.m */,
-				0FE340831EA9A08D00122055 /* ViewController.h */,
-				0FE340841EA9A08D00122055 /* ViewController.m */,
-				0FE340861EA9A08D00122055 /* Main.storyboard */,
+				0FE340B71EA9A80100122055 /* Base */,
+				0FE340B01EA9A1D900122055 /* AppDelegate */,
+				0FE340BB1EA9A80100122055 /* Main */,
 				0FE340891EA9A08D00122055 /* Assets.xcassets */,
-				0FE3408B1EA9A08D00122055 /* LaunchScreen.storyboard */,
+				0FE340B61EA9A72E00122055 /* ZhengDemo.pch */,
 				0FE3408E1EA9A08D00122055 /* Info.plist */,
 				0FE3407D1EA9A08D00122055 /* Supporting Files */,
+				0FE340C01EA9AC0B00122055 /* Launch Screen.storyboard */,
 			);
 			path = ZhengDemo;
 			sourceTree = "<group>";
@@ -140,6 +145,80 @@
 			path = ZhengDemoUITests;
 			sourceTree = "<group>";
 		};
+		0FE340B01EA9A1D900122055 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				0FE340B11EA9A1D900122055 /* CXAppDelegate.h */,
+				0FE340B21EA9A1D900122055 /* CXAppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		0FE340B71EA9A80100122055 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0FE340B81EA9A80100122055 /* Controller */,
+				0FE340B91EA9A80100122055 /* Model */,
+				0FE340BA1EA9A80100122055 /* View */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		0FE340B81EA9A80100122055 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0FE340B91EA9A80100122055 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0FE340BA1EA9A80100122055 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0FE340BB1EA9A80100122055 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0FE340BC1EA9A80100122055 /* Controller */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		0FE340BC1EA9A80100122055 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0FE340BD1EA9A84000122055 /* CXMainTabBarController.h */,
+				0FE340BE1EA9A84000122055 /* CXMainTabBarController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3428437A8485135A6C4C5234 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B3FF6459E8CDE79DCAA45794 /* libPods-ZhengDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8EC194148AE8E5688AC8DABC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A7FC1F32D68A56003A3F10B5 /* Pods-ZhengDemo.debug.xcconfig */,
+				89932AF98856467ACCEDEF04 /* Pods-ZhengDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +226,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FE340A71EA9A08D00122055 /* Build configuration list for PBXNativeTarget "ZhengDemo" */;
 			buildPhases = (
+				A2EB17CC3B85D2B345AF0B39 /* [CP] Check Pods Manifest.lock */,
 				0FE340761EA9A08D00122055 /* Sources */,
 				0FE340771EA9A08D00122055 /* Frameworks */,
 				0FE340781EA9A08D00122055 /* Resources */,
+				27D84553619E5EFFC5E9B51A /* [CP] Embed Pods Frameworks */,
+				3B5304E66D17B6C6ACAF7CAD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,9 +328,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FE3408D1EA9A08D00122055 /* LaunchScreen.storyboard in Resources */,
+				0FE340C11EA9AC0B00122055 /* Launch Screen.storyboard in Resources */,
 				0FE3408A1EA9A08D00122055 /* Assets.xcassets in Resources */,
-				0FE340881EA9A08D00122055 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,14 +349,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		27D84553619E5EFFC5E9B51A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZhengDemo/Pods-ZhengDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3B5304E66D17B6C6ACAF7CAD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZhengDemo/Pods-ZhengDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2EB17CC3B85D2B345AF0B39 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0FE340761EA9A08D00122055 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FE340851EA9A08D00122055 /* ViewController.m in Sources */,
-				0FE340821EA9A08D00122055 /* AppDelegate.m in Sources */,
 				0FE3407F1EA9A08D00122055 /* main.m in Sources */,
+				0FE340B31EA9A1D900122055 /* CXAppDelegate.m in Sources */,
+				0FE340BF1EA9A84000122055 /* CXMainTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,25 +438,6 @@
 			targetProxy = 0FE3409F1EA9A08D00122055 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		0FE340861EA9A08D00122055 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0FE340871EA9A08D00122055 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0FE3408B1EA9A08D00122055 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0FE3408C1EA9A08D00122055 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		0FE340A51EA9A08D00122055 /* Debug */ = {
@@ -424,8 +534,11 @@
 		};
 		0FE340A81EA9A08D00122055 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7FC1F32D68A56003A3F10B5 /* Pods-ZhengDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/Zheng/Desktop/ZhengDemo/ZhengDemo/ZhengDemo.pch;
 				INFOPLIST_FILE = ZhengDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chengxuzheng.ZhengDemo;
@@ -435,8 +548,11 @@
 		};
 		0FE340A91EA9A08D00122055 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89932AF98856467ACCEDEF04 /* Pods-ZhengDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/Zheng/Desktop/ZhengDemo/ZhengDemo/ZhengDemo.pch;
 				INFOPLIST_FILE = ZhengDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chengxuzheng.ZhengDemo;
@@ -509,6 +625,7 @@
 				0FE340A91EA9A08D00122055 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0FE340AA1EA9A08D00122055 /* Build configuration list for PBXNativeTarget "ZhengDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +634,7 @@
 				0FE340AC1EA9A08D00122055 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0FE340AD1EA9A08D00122055 /* Build configuration list for PBXNativeTarget "ZhengDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +643,7 @@
 				0FE340AF1EA9A08D00122055 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,54 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - HexColors (2.2.1)
+  - IQKeyboardManager (4.0.9)
+  - Masonry (1.0.2)
+  - MJExtension (3.0.13)
+  - PKRevealController (2.0.6)
+  - Realm (2.5.1):
+    - Realm/Headers (= 2.5.1)
+  - Realm/Headers (2.5.1)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - TSMessages (0.9.12):
+    - HexColors (~> 2.2.0)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.1.0)
+  - IQKeyboardManager (~> 4.0.9)
+  - Masonry (~> 1.0.2)
+  - MJExtension (~> 3.0.13)
+  - PKRevealController (~> 2.0.6)
+  - Realm (~> 2.5.1)
+  - SDWebImage (~> 3.8.2)
+  - TSMessages (~> 0.9.12)
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  HexColors: abfd172e329dab59888614ccba6f216cec59289d
+  IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  PKRevealController: ffb45a16f5a5032ad90a3d16e5cbb0d8e035bd58
+  Realm: 32f86104d37c8521f864d4274050b38ba6190733
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  TSMessages: c8cc7b80f2a833af533872cd02010cac061532cc
+
+PODFILE CHECKSUM: f437afd0ef0fc80df74e4e33d304631e184d201f
+
+COCOAPODS: 1.0.1
