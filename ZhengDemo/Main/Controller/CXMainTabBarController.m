@@ -7,6 +7,7 @@
 //
 
 #import "CXMainTabBarController.h"
+#import "Zheng.h"
 
 typedef void(^MaskHiddenBlock)();
 
@@ -18,15 +19,6 @@ typedef void(^MaskHiddenBlock)();
 @end
 
 @implementation CXMainTabBarController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    [self.view addSubview:self.maskView];
-
-}
 
 #pragma mark - 设置遮罩层隐藏状态
 - (void)changeMaskViewHiddenStateWithState:(PKRevealControllerState)state withFinishBlock:(void (^)())block {
@@ -44,7 +36,7 @@ typedef void(^MaskHiddenBlock)();
         if (state == PKRevealControllerShowsFrontViewController) {
             _maskView.hidden = YES;
         }
-
+        
         if (_maskHiddenBlock != nil && _maskHiddenBlock != NULL) {
             _maskHiddenBlock();
         }
@@ -52,7 +44,18 @@ typedef void(^MaskHiddenBlock)();
 }
 
 
-#pragma mark - subviews
+#pragma mark - View LifeCycle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self addSubviewInView];
+}
+
+#pragma mark - Subviews
+- (void)addSubviewInView {
+    [self.view addSubview:self.maskView];
+}
+
 - (UIView *)maskView {
     if (!_maskView) {
         _maskView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];

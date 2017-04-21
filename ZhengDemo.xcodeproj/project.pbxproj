@@ -20,7 +20,8 @@
 		0FE340D51EA9C91D00122055 /* CXBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340D41EA9C91D00122055 /* CXBaseViewController.m */; };
 		0FE340D71EA9D3BE00122055 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE340D61EA9D3BE00122055 /* UIKit.framework */; };
 		0FE340DF1EA9DC4400122055 /* CXLeftSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340DE1EA9DC4400122055 /* CXLeftSlidingViewController.m */; };
-		0FE340E21EA9EB4100122055 /* CXRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340E11EA9EB4100122055 /* CXRevealViewController.m */; };
+		0FE340E71EA9FA9000122055 /* CXRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340E61EA9FA9000122055 /* CXRevealViewController.m */; };
+		0FE3414E1EAA08C300122055 /* libZheng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE3414D1EAA087D00122055 /* libZheng.a */; };
 		37FB54BE81F6DC7269F5B124 /* libPods-ZhengDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FF6459E8CDE79DCAA45794 /* libPods-ZhengDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0FE340791EA9A08D00122055;
 			remoteInfo = ZhengDemo;
+		};
+		0FE3414C1EAA087D00122055 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FE341481EAA087D00122055 /* Zheng.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0FE3413C1EAA083C00122055;
+			remoteInfo = Zheng;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -70,8 +78,9 @@
 		0FE340D81EA9D3FD00122055 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		0FE340DD1EA9DC4400122055 /* CXLeftSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXLeftSlidingViewController.h; sourceTree = "<group>"; };
 		0FE340DE1EA9DC4400122055 /* CXLeftSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXLeftSlidingViewController.m; sourceTree = "<group>"; };
-		0FE340E01EA9EB4100122055 /* CXRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXRevealViewController.h; sourceTree = "<group>"; };
-		0FE340E11EA9EB4100122055 /* CXRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXRevealViewController.m; sourceTree = "<group>"; };
+		0FE340E51EA9FA9000122055 /* CXRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXRevealViewController.h; sourceTree = "<group>"; };
+		0FE340E61EA9FA9000122055 /* CXRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXRevealViewController.m; sourceTree = "<group>"; };
+		0FE341481EAA087D00122055 /* Zheng.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Zheng.xcodeproj; path = Zheng/Zheng.xcodeproj; sourceTree = "<group>"; };
 		89932AF98856467ACCEDEF04 /* Pods-ZhengDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhengDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZhengDemo/Pods-ZhengDemo.release.xcconfig"; sourceTree = "<group>"; };
 		A7FC1F32D68A56003A3F10B5 /* Pods-ZhengDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhengDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhengDemo/Pods-ZhengDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B3FF6459E8CDE79DCAA45794 /* libPods-ZhengDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZhengDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FE3414E1EAA08C300122055 /* libZheng.a in Frameworks */,
 				0FE340D71EA9D3BE00122055 /* UIKit.framework in Frameworks */,
 				37FB54BE81F6DC7269F5B124 /* libPods-ZhengDemo.a in Frameworks */,
 			);
@@ -107,6 +117,7 @@
 		0FE340711EA9A08C00122055 = {
 			isa = PBXGroup;
 			children = (
+				0FE341481EAA087D00122055 /* Zheng.xcodeproj */,
 				0FE3407C1EA9A08D00122055 /* ZhengDemo */,
 				0FE340961EA9A08D00122055 /* ZhengDemoTests */,
 				0FE340A11EA9A08D00122055 /* ZhengDemoUITests */,
@@ -129,13 +140,14 @@
 		0FE3407C1EA9A08D00122055 /* ZhengDemo */ = {
 			isa = PBXGroup;
 			children = (
-				0FE340B71EA9A80100122055 /* Base */,
 				0FE340B01EA9A1D900122055 /* AppDelegate */,
+				0FE340B71EA9A80100122055 /* Base */,
+				0FE340E31EA9FA7400122055 /* Root */,
 				0FE340BB1EA9A80100122055 /* Main */,
 				0FE340D91EA9DC1400122055 /* LeftSliding */,
-				0FE340891EA9A08D00122055 /* Assets.xcassets */,
 				0FE3407D1EA9A08D00122055 /* Supporting Files */,
 				0FE340C81EA9BC8B00122055 /* Vendors */,
+				0FE340891EA9A08D00122055 /* Assets.xcassets */,
 				0FE340C01EA9AC0B00122055 /* Launch Screen.storyboard */,
 				0FE3408E1EA9A08D00122055 /* Info.plist */,
 				0FE340B61EA9A72E00122055 /* ZhengDemo.pch */,
@@ -194,8 +206,6 @@
 			children = (
 				0FE340D31EA9C91D00122055 /* CXBaseViewController.h */,
 				0FE340D41EA9C91D00122055 /* CXBaseViewController.m */,
-				0FE340E01EA9EB4100122055 /* CXRevealViewController.h */,
-				0FE340E11EA9EB4100122055 /* CXRevealViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -283,6 +293,31 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0FE340E31EA9FA7400122055 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				0FE340E41EA9FA7400122055 /* Controller */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		0FE340E41EA9FA7400122055 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0FE340E51EA9FA9000122055 /* CXRevealViewController.h */,
+				0FE340E61EA9FA9000122055 /* CXRevealViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0FE341491EAA087D00122055 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0FE3414D1EAA087D00122055 /* libZheng.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		3428437A8485135A6C4C5234 /* Frameworks */ = {
@@ -399,6 +434,12 @@
 			mainGroup = 0FE340711EA9A08C00122055;
 			productRefGroup = 0FE3407B1EA9A08D00122055 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0FE341491EAA087D00122055 /* Products */;
+					ProjectRef = 0FE341481EAA087D00122055 /* Zheng.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0FE340791EA9A08D00122055 /* ZhengDemo */,
@@ -407,6 +448,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0FE3414D1EAA087D00122055 /* libZheng.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libZheng.a;
+			remoteRef = 0FE3414C1EAA087D00122055 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0FE340781EA9A08D00122055 /* Resources */ = {
@@ -489,7 +540,7 @@
 			files = (
 				0FE340D51EA9C91D00122055 /* CXBaseViewController.m in Sources */,
 				0FE3407F1EA9A08D00122055 /* main.m in Sources */,
-				0FE340E21EA9EB4100122055 /* CXRevealViewController.m in Sources */,
+				0FE340E71EA9FA9000122055 /* CXRevealViewController.m in Sources */,
 				0FE340D11EA9BC8B00122055 /* UIView+RMAdditions.m in Sources */,
 				0FE340B31EA9A1D900122055 /* CXAppDelegate.m in Sources */,
 				0FE340D21EA9BC8B00122055 /* UIViewController+YCCommon.m in Sources */,
@@ -630,8 +681,23 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7L37TQPJ9G;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/Zheng/Desktop/ZhengDemo/ZhengDemo/ZhengDemo.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ZhengDemo/ZhengDemo.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/HexColors\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/MJExtension\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/PKRevealController\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/TSMessages\"",
+					"$(SRCROOT)/Zheng/Zheng",
+				);
 				INFOPLIST_FILE = ZhengDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chengxuzheng.ZhengDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -645,8 +711,23 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7L37TQPJ9G;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/Zheng/Desktop/ZhengDemo/ZhengDemo/ZhengDemo.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ZhengDemo/ZhengDemo.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/HexColors\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/MJExtension\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/PKRevealController\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/TSMessages\"",
+					"$(SRCROOT)/Zheng/Zheng",
+				);
 				INFOPLIST_FILE = ZhengDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chengxuzheng.ZhengDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
