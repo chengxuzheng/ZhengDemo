@@ -10,4 +10,7 @@
 
 @interface CXMainTabBarController : UITabBarController
 
+- (void)changeMaskViewHiddenStateWithState:(PKRevealControllerState)state withFinishBlock:(void(^)())block;
+
+
 @end

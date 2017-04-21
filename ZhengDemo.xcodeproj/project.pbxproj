@@ -14,6 +14,13 @@
 		0FE340B31EA9A1D900122055 /* CXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340B21EA9A1D900122055 /* CXAppDelegate.m */; };
 		0FE340BF1EA9A84000122055 /* CXMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340BE1EA9A84000122055 /* CXMainTabBarController.m */; };
 		0FE340C11EA9AC0B00122055 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FE340C01EA9AC0B00122055 /* Launch Screen.storyboard */; };
+		0FE340D01EA9BC8B00122055 /* NSString+Extent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340CB1EA9BC8B00122055 /* NSString+Extent.m */; };
+		0FE340D11EA9BC8B00122055 /* UIView+RMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340CD1EA9BC8B00122055 /* UIView+RMAdditions.m */; };
+		0FE340D21EA9BC8B00122055 /* UIViewController+YCCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340CF1EA9BC8B00122055 /* UIViewController+YCCommon.m */; };
+		0FE340D51EA9C91D00122055 /* CXBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340D41EA9C91D00122055 /* CXBaseViewController.m */; };
+		0FE340D71EA9D3BE00122055 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE340D61EA9D3BE00122055 /* UIKit.framework */; };
+		0FE340DF1EA9DC4400122055 /* CXLeftSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340DE1EA9DC4400122055 /* CXLeftSlidingViewController.m */; };
+		0FE340E21EA9EB4100122055 /* CXRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE340E11EA9EB4100122055 /* CXRevealViewController.m */; };
 		37FB54BE81F6DC7269F5B124 /* libPods-ZhengDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FF6459E8CDE79DCAA45794 /* libPods-ZhengDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +58,20 @@
 		0FE340BD1EA9A84000122055 /* CXMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMainTabBarController.h; sourceTree = "<group>"; };
 		0FE340BE1EA9A84000122055 /* CXMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMainTabBarController.m; sourceTree = "<group>"; };
 		0FE340C01EA9AC0B00122055 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		0FE340CA1EA9BC8B00122055 /* NSString+Extent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extent.h"; sourceTree = "<group>"; };
+		0FE340CB1EA9BC8B00122055 /* NSString+Extent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extent.m"; sourceTree = "<group>"; };
+		0FE340CC1EA9BC8B00122055 /* UIView+RMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RMAdditions.h"; sourceTree = "<group>"; };
+		0FE340CD1EA9BC8B00122055 /* UIView+RMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RMAdditions.m"; sourceTree = "<group>"; };
+		0FE340CE1EA9BC8B00122055 /* UIViewController+YCCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YCCommon.h"; sourceTree = "<group>"; };
+		0FE340CF1EA9BC8B00122055 /* UIViewController+YCCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YCCommon.m"; sourceTree = "<group>"; };
+		0FE340D31EA9C91D00122055 /* CXBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXBaseViewController.h; sourceTree = "<group>"; };
+		0FE340D41EA9C91D00122055 /* CXBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXBaseViewController.m; sourceTree = "<group>"; };
+		0FE340D61EA9D3BE00122055 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0FE340D81EA9D3FD00122055 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		0FE340DD1EA9DC4400122055 /* CXLeftSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXLeftSlidingViewController.h; sourceTree = "<group>"; };
+		0FE340DE1EA9DC4400122055 /* CXLeftSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXLeftSlidingViewController.m; sourceTree = "<group>"; };
+		0FE340E01EA9EB4100122055 /* CXRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXRevealViewController.h; sourceTree = "<group>"; };
+		0FE340E11EA9EB4100122055 /* CXRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXRevealViewController.m; sourceTree = "<group>"; };
 		89932AF98856467ACCEDEF04 /* Pods-ZhengDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhengDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZhengDemo/Pods-ZhengDemo.release.xcconfig"; sourceTree = "<group>"; };
 		A7FC1F32D68A56003A3F10B5 /* Pods-ZhengDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhengDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhengDemo/Pods-ZhengDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B3FF6459E8CDE79DCAA45794 /* libPods-ZhengDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZhengDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FE340D71EA9D3BE00122055 /* UIKit.framework in Frameworks */,
 				37FB54BE81F6DC7269F5B124 /* libPods-ZhengDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,11 +132,14 @@
 				0FE340B71EA9A80100122055 /* Base */,
 				0FE340B01EA9A1D900122055 /* AppDelegate */,
 				0FE340BB1EA9A80100122055 /* Main */,
+				0FE340D91EA9DC1400122055 /* LeftSliding */,
 				0FE340891EA9A08D00122055 /* Assets.xcassets */,
-				0FE340B61EA9A72E00122055 /* ZhengDemo.pch */,
-				0FE3408E1EA9A08D00122055 /* Info.plist */,
 				0FE3407D1EA9A08D00122055 /* Supporting Files */,
+				0FE340C81EA9BC8B00122055 /* Vendors */,
 				0FE340C01EA9AC0B00122055 /* Launch Screen.storyboard */,
+				0FE3408E1EA9A08D00122055 /* Info.plist */,
+				0FE340B61EA9A72E00122055 /* ZhengDemo.pch */,
+				0FE340D81EA9D3FD00122055 /* Constant.h */,
 			);
 			path = ZhengDemo;
 			sourceTree = "<group>";
@@ -167,6 +192,10 @@
 		0FE340B81EA9A80100122055 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0FE340D31EA9C91D00122055 /* CXBaseViewController.h */,
+				0FE340D41EA9C91D00122055 /* CXBaseViewController.m */,
+				0FE340E01EA9EB4100122055 /* CXRevealViewController.h */,
+				0FE340E11EA9EB4100122055 /* CXRevealViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -202,9 +231,64 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		0FE340C81EA9BC8B00122055 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				0FE340C91EA9BC8B00122055 /* NavItemTool */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		0FE340C91EA9BC8B00122055 /* NavItemTool */ = {
+			isa = PBXGroup;
+			children = (
+				0FE340CA1EA9BC8B00122055 /* NSString+Extent.h */,
+				0FE340CB1EA9BC8B00122055 /* NSString+Extent.m */,
+				0FE340CC1EA9BC8B00122055 /* UIView+RMAdditions.h */,
+				0FE340CD1EA9BC8B00122055 /* UIView+RMAdditions.m */,
+				0FE340CE1EA9BC8B00122055 /* UIViewController+YCCommon.h */,
+				0FE340CF1EA9BC8B00122055 /* UIViewController+YCCommon.m */,
+			);
+			path = NavItemTool;
+			sourceTree = "<group>";
+		};
+		0FE340D91EA9DC1400122055 /* LeftSliding */ = {
+			isa = PBXGroup;
+			children = (
+				0FE340DA1EA9DC1400122055 /* Controller */,
+				0FE340DB1EA9DC1400122055 /* Model */,
+				0FE340DC1EA9DC1400122055 /* View */,
+			);
+			path = LeftSliding;
+			sourceTree = "<group>";
+		};
+		0FE340DA1EA9DC1400122055 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0FE340DD1EA9DC4400122055 /* CXLeftSlidingViewController.h */,
+				0FE340DE1EA9DC4400122055 /* CXLeftSlidingViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0FE340DB1EA9DC1400122055 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0FE340DC1EA9DC1400122055 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3428437A8485135A6C4C5234 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FE340D61EA9D3BE00122055 /* UIKit.framework */,
 				B3FF6459E8CDE79DCAA45794 /* libPods-ZhengDemo.a */,
 			);
 			name = Frameworks;
@@ -289,6 +373,7 @@
 				TargetAttributes = {
 					0FE340791EA9A08D00122055 = {
 						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 7L37TQPJ9G;
 						ProvisioningStyle = Automatic;
 					};
 					0FE340921EA9A08D00122055 = {
@@ -402,9 +487,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FE340D51EA9C91D00122055 /* CXBaseViewController.m in Sources */,
 				0FE3407F1EA9A08D00122055 /* main.m in Sources */,
+				0FE340E21EA9EB4100122055 /* CXRevealViewController.m in Sources */,
+				0FE340D11EA9BC8B00122055 /* UIView+RMAdditions.m in Sources */,
 				0FE340B31EA9A1D900122055 /* CXAppDelegate.m in Sources */,
+				0FE340D21EA9BC8B00122055 /* UIViewController+YCCommon.m in Sources */,
 				0FE340BF1EA9A84000122055 /* CXMainTabBarController.m in Sources */,
+				0FE340D01EA9BC8B00122055 /* NSString+Extent.m in Sources */,
+				0FE340DF1EA9DC4400122055 /* CXLeftSlidingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +628,7 @@
 			baseConfigurationReference = A7FC1F32D68A56003A3F10B5 /* Pods-ZhengDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7L37TQPJ9G;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/Zheng/Desktop/ZhengDemo/ZhengDemo/ZhengDemo.pch;
 				INFOPLIST_FILE = ZhengDemo/Info.plist;
@@ -551,6 +643,7 @@
 			baseConfigurationReference = 89932AF98856467ACCEDEF04 /* Pods-ZhengDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7L37TQPJ9G;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/Zheng/Desktop/ZhengDemo/ZhengDemo/ZhengDemo.pch;
 				INFOPLIST_FILE = ZhengDemo/Info.plist;

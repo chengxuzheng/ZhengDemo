@@ -9,18 +9,30 @@
 #ifndef ZhengDemo_pch
 #define ZhengDemo_pch
 
-#define kSCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
-#define kSCREENH_HEIGHT [UIScreen mainScreen].bounds.size.height
-#define kSTATUS_BAR_Height 20
-#define kNAV_BAR_Height 44
-#define kTAB_BAR_Height 49
+#import "Constant.h"
+
 #define kRGB_COLOR(R,G,B,A) [UIColor colorWithRed:(R)/255.f green:(G)/255.f blue:(B)/255.f alpha:A]
+#define kIMAGE(imageName) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
 
 #ifdef DEBUG
 #define CXLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
 #else
 #define CXLog(...)
-
 #endif
+
+#define LRViewBorderRadius(View, Radius, Width, Color)\
+\
+[View.layer setCornerRadius:(Radius)];\
+[View.layer setMasksToBounds:YES];\
+[View.layer setBorderWidth:(Width)];\
+[View.layer setBorderColor:[Color CGColor]]
+
+#define kDISPATCH_ONCE_BLOCK(onceBlock) static dispatch_once_t onceToken; dispatch_once(&onceToken, onceBlock);
+
+#define kDISPATCH_MAIN_THREAD(mainQueueBlock) dispatch_async(dispatch_get_main_queue(), mainQueueBlock);
+
+#define kDISPATCH_GLOBAL_QUEUE_DEFAULT(globalQueueBlock) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), globalQueueBlock);
+
+#import <PKRevealController.h>
 
 #endif /* ZhengDemo_pch */
