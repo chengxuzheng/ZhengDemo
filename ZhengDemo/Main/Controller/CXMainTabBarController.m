@@ -8,7 +8,6 @@
 
 #import "CXMainTabBarController.h"
 
-
 typedef void(^MaskHiddenBlock)();
 
 @interface CXMainTabBarController ()
@@ -28,13 +27,13 @@ typedef void(^MaskHiddenBlock)();
     [UIView animateWithDuration:kMASK_Duration animations:^{
         if (state == PKRevealControllerShowsLeftViewController) {
             _maskView.hidden = NO;
-            _maskView.alpha = 0.25f;
+            _maskView.alpha = kTRANSLUCENT_ALPHA;
         } else if (PKRevealControllerShowsFrontViewController) {
-            _maskView.alpha = 0.0f;
+            _maskView.alpha = kZERO_ALPHA;
         }
     } completion:^(BOOL finished) {
         if (state == PKRevealControllerShowsFrontViewController) {
-            _maskView.hidden = YES;
+            _maskView.hidden = !_maskView.hidden;
         }
         
         if (_maskHiddenBlock != nil && _maskHiddenBlock != NULL) {
@@ -49,7 +48,27 @@ typedef void(^MaskHiddenBlock)();
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self addSubviewInView];
+    
+//    __block NSInteger time = 1500;
+//    [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
+//        time--;
+//        
+//        NSInteger minuteTime = time/60;
+//        NSInteger secondTime = time%60;
+//        
+//        if (time > 0) {
+//            kCX_LOG(@"%@", [NSString stringWithFormat:@"%ld:%ld",minuteTime,secondTime]);
+//        } else {
+//            
+//        }
+//    }];
+//
+//    NSTimer *myTimer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(timerFired:)userInfo:nil repeats:NO];
+//    
+//    [[NSRunLoop currentRunLoop] addTimer:myTimer forMode:NSDefaultRunLoopMode];
 }
+
+
 
 #pragma mark - Subviews
 - (void)addSubviewInView {
@@ -60,7 +79,7 @@ typedef void(^MaskHiddenBlock)();
     if (!_maskView) {
         _maskView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
         _maskView.backgroundColor = [UIColor lightGrayColor];
-        _maskView.alpha = 0.0f;
+        _maskView.alpha = kZERO_ALPHA;
         _maskView.hidden = YES;
     }
     return _maskView;

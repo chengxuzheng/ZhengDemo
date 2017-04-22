@@ -15,6 +15,9 @@
 #define kNAV_BAR_Height 44.f
 #define kTAB_BAR_Height 49.f
 #define kMASK_Duration 0.35f
-#define kAnimation_Duration 0.25f
+#define kANIMATION_DURATION 0.25f
+#define kZERO_ALPHA 0.0f
+#define kTRANSLUCENT_ALPHA 0.25f
+
 
 #endif /* Constant_h */

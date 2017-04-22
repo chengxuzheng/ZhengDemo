@@ -10,17 +10,19 @@
 #define ZhengDemo_pch
 
 #import "Constant.h"
+#import "UIViewController+YCCommon.h"
 
+#define kCX_Scale(W) (375.f/kSCREEN_WIDTH)*W
 #define kRGB_COLOR(R,G,B,A) [UIColor colorWithRed:(R)/255.f green:(G)/255.f blue:(B)/255.f alpha:A]
 #define kIMAGE(imageName) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
 
 #ifdef DEBUG
-#define CXLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+#define kCX_LOG(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
 #else
-#define CXLog(...)
+#define kCX_LOG(...)
 #endif
 
-#define LRViewBorderRadius(View, Radius, Width, Color)\
+#define kCX_RADIUS(View, Radius, Width, Color)\
 \
 [View.layer setCornerRadius:(Radius)];\
 [View.layer setMasksToBounds:YES];\
@@ -34,5 +36,6 @@
 #define kDISPATCH_GLOBAL_QUEUE_DEFAULT(globalQueueBlock) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), globalQueueBlock);
 
 #import <PKRevealController.h>
+#import <Masonry.h>
 
 #endif /* ZhengDemo_pch */

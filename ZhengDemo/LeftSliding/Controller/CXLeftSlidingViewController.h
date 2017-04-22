@@ -6,8 +6,8 @@
 //  Copyright © 2017年 Zheng. All rights reserved.
 //
 
-#import "CXBaseViewController.h"
+#import "CXBaseTableViewController.h"
 
-@interface CXLeftSlidingViewController : CXBaseViewController
+@interface CXLeftSlidingViewController : CXBaseTableViewController
 
 @end

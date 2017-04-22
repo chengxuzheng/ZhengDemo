@@ -34,7 +34,7 @@ static CXLeftSlidingViewController *_leftSlidingVC;
     [super viewDidLoad];
     
     self.delegate = self;
-    self.animationDuration = kAnimation_Duration;
+    self.animationDuration = kANIMATION_DURATION;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -50,7 +50,7 @@ static CXLeftSlidingViewController *_leftSlidingVC;
     _isStatusHidden = (state == PKRevealControllerShowsFrontViewController)? NO: YES;
     
     [_mainVC changeMaskViewHiddenStateWithState:state withFinishBlock:^{
-        [UIView animateWithDuration:0.25 animations:^{
+        [UIView animateWithDuration:kANIMATION_DURATION animations:^{
             [self setNeedsStatusBarAppearanceUpdate];
         }];
     }];
@@ -61,7 +61,7 @@ static CXLeftSlidingViewController *_leftSlidingVC;
 }
 
 - (UIStatusBarAnimation )preferredStatusBarUpdateAnimation {
-    return UIStatusBarAnimationSlide;
+    return UIStatusBarAnimationFade;
 }
 
 - (BOOL)prefersStatusBarHidden {
