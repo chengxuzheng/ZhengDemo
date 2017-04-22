@@ -22,6 +22,8 @@
 #define kCX_LOG(...)
 #endif
 
+#define kCX_FONT(R) [UIFont systemFontOfSize:R]
+
 #define kCX_RADIUS(View, Radius, Width, Color)\
 \
 [View.layer setCornerRadius:(Radius)];\

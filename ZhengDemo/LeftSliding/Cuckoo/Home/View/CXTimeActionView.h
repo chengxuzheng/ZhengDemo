@@ -15,6 +15,8 @@
 @property (nonatomic, strong) UILabel *timeShowLbl;
 @property (nonatomic, strong) UIButton *subBtn;
 @property (nonatomic, strong) UIButton *addBtn;
+@property (nonatomic, strong) UISegmentedControl *segment;
+
 @property (nonatomic, strong) UIButton *timeActionBtn;
 
 @end

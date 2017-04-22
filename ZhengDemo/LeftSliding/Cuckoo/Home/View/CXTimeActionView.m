@@ -10,6 +10,13 @@
 
 @implementation CXTimeActionView
 
+#pragma mark - 点击事件
+#pragma mark 加减时间
+- (void)tomatoTimeIsChanged:(UISegmentedControl *)sender {
+    kCX_LOG(@"%@", [NSString stringWithFormat:@"%ld",sender.selectedSegmentIndex]);
+}
+
+#pragma mark - Init Method
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -25,8 +32,7 @@
     [self addSubview:self.leftInfoLbl];
     [self addSubview:self.timeTitleLbl];
     [self addSubview:self.timeShowLbl];
-    [self addSubview:self.subBtn];
-    [self addSubview:self.addBtn];
+    [self addSubview:self.segment];
     [self addSubview:self.timeActionBtn];
     
     [self layoutSubviewsInView];
@@ -38,13 +44,65 @@
         make.bottom.mas_equalTo(-kCX_Scale(20));
         make.width.mas_equalTo(kCX_Scale(90));
     }];
+    
+    [_timeTitleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_leftInfoLbl.mas_right).offset(kCX_Scale(15));
+        make.width.mas_equalTo(kCX_Scale(65));
+        make.height.mas_equalTo(kCX_Scale(24));
+        make.top.equalTo(_leftInfoLbl).offset(kCX_Scale(3));
+    }];
+    
+    [_timeShowLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.left.equalTo(_timeTitleLbl);
+        make.top.equalTo(_timeTitleLbl.mas_bottom);
+    }];
+    
+    [_segment mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(kCX_Scale(90));
+        make.height.mas_equalTo(kCX_Scale(25));
+        make.centerY.equalTo(_timeTitleLbl.mas_bottom).offset(-kCX_Scale(3));
+        make.right.mas_equalTo(-kCX_Scale(15));
+    }];
+}
+
+- (UISegmentedControl *)segment {
+    if (!_segment) {
+        _segment = [[UISegmentedControl alloc] initWithItems:@[@"－",@"＋"]];
+        _segment.tintColor = [UIColor lightGrayColor];
+        _segment.momentary = YES;
+        [_segment setTitleTextAttributes:@{NSFontAttributeName:kCX_FONT(21)} forState:UIControlStateNormal];
+        [_segment addTarget:self action:@selector(tomatoTimeIsChanged:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _segment;
+}
+
+- (UILabel *)timeShowLbl {
+    if (!_timeShowLbl) {
+        _timeShowLbl = [[UILabel alloc] init];
+        _timeShowLbl.text = @"25分钟";
+        _timeShowLbl.font = kCX_FONT(13);
+        _timeShowLbl.textAlignment = NSTextAlignmentCenter;
+    }
+    return _timeShowLbl;
+}
+
+- (UILabel *)timeTitleLbl {
+    if (!_timeTitleLbl) {
+        _timeTitleLbl = [[UILabel alloc] init];
+        _timeTitleLbl.text = @"番茄时间";
+        _timeTitleLbl.font = kCX_FONT(12);
+        _timeTitleLbl.textColor = [UIColor whiteColor];
+        _timeTitleLbl.textAlignment = NSTextAlignmentCenter;
+        _timeTitleLbl.backgroundColor = [UIColor blackColor];
+    }
+    return _timeTitleLbl;
 }
 
 - (UILabel *)leftInfoLbl {
     if (!_leftInfoLbl) {
         _leftInfoLbl = [[UILabel alloc] init];
         _leftInfoLbl.numberOfLines = 0;
-        _leftInfoLbl.font = [UIFont systemFontOfSize:17];
+        _leftInfoLbl.font = kCX_FONT(17);
         _leftInfoLbl.layer.borderColor = [[UIColor blackColor] CGColor];
         _leftInfoLbl.layer.borderWidth = 1;
         _leftInfoLbl.textAlignment = NSTextAlignmentCenter;
