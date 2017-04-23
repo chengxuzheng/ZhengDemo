@@ -8,12 +8,46 @@
 
 #import "CXTimeActionView.h"
 
+@interface CXTimeActionView ()
+
+@property (nonatomic, strong) UILabel *leftInfoLbl;
+@property (nonatomic, strong) UILabel *timeTitleLbl;
+@property (nonatomic, strong) UILabel *timeShowLbl;
+@property (nonatomic, strong) UIButton *subBtn;
+@property (nonatomic, strong) UIButton *addBtn;
+@property (nonatomic, strong) UISegmentedControl *segment;
+@property (nonatomic, strong) UIButton *timeActionBtn;
+
+@property (nonatomic, assign) NSInteger tomatoTime; //番茄时间
+
+@end
+
 @implementation CXTimeActionView
 
 #pragma mark - 点击事件
 #pragma mark 加减时间
 - (void)tomatoTimeIsChanged:(UISegmentedControl *)sender {
-    kCX_LOG(@"%@", [NSString stringWithFormat:@"%ld",sender.selectedSegmentIndex]);
+    
+    if (sender.selectedSegmentIndex == 0) {
+        if (_tomatoTime == 5) {
+            [_segment setEnabled:NO forSegmentAtIndex:0];
+        } else {
+            if (_tomatoTime == 60) {
+                [_segment setEnabled:YES forSegmentAtIndex:1];
+            }
+            _tomatoTime -= 5;
+        }
+    } else {
+        if (_tomatoTime == 60) {
+            [_segment setEnabled:NO forSegmentAtIndex:1];
+        } else {
+            if (_tomatoTime == 5) {
+                [_segment setEnabled:YES forSegmentAtIndex:0];
+            }
+            _tomatoTime += 5;
+        }
+    }
+    _timeShowLbl.text = [NSString stringWithFormat:@"%ld分钟",_tomatoTime];
 }
 
 #pragma mark - Init Method
@@ -21,6 +55,7 @@
     self = [super init];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
+        _tomatoTime = 25;
         [self addSubviewsInView];
     }
     return self;
@@ -79,7 +114,7 @@
 - (UILabel *)timeShowLbl {
     if (!_timeShowLbl) {
         _timeShowLbl = [[UILabel alloc] init];
-        _timeShowLbl.text = @"25分钟";
+        _timeShowLbl.text = [NSString stringWithFormat:@"%ld分钟",_tomatoTime];
         _timeShowLbl.font = kCX_FONT(13);
         _timeShowLbl.textAlignment = NSTextAlignmentCenter;
     }
