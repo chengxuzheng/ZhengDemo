@@ -99,23 +99,15 @@ static const NSTimeInterval kInitialTime = 25;
     }
     
     if (_tomatoSeconds != 0) {
-#ifdef IOS_VERSION_10
-        
-        _trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:_tomatoSeconds repeats:NO];
-        _request = [UNNotificationRequest requestWithIdentifier:@"kFinishTomatoTime" content:self.content trigger:_trigger];
-        [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:_request withCompletionHandler:^(NSError * _Nullable error) {
-            
-        }];
-#else
-        
-        self.localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:_tomatoSeconds];
-        [[UIApplication sharedApplication] scheduleLocalNotification:self.localNotification];
-#endif
+        //注册通知
+        [self scheduleLocalNotificationWithTimeInterval:_tomatoSeconds];
     }
 
     if (sender.selected) {
+        //点击停止
         [self scaleTransformAnimationWithButton:sender withScale:1.15 withLastCount:NO];
     } else {
+        //点击开始
         _tomatoSeconds = _tomatoTime * 60;
         _isFire = YES;
         [self.player play];
@@ -125,6 +117,22 @@ static const NSTimeInterval kInitialTime = 25;
     }
 }
 
+#ifdef IOS_VERSION_10
+- (void)scheduleLocalNotificationWithTimeInterval:(NSInteger)seconds {
+    _trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:seconds repeats:NO];
+    _request = [UNNotificationRequest requestWithIdentifier:@"kFinishTomatoTime" content:self.content trigger:_trigger];
+    [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:_request withCompletionHandler:^(NSError * _Nullable error) {
+        
+    }];
+}
+#else
+- (void)scheduleLocalNotificationWithTimeInterval:(NSInteger)seconds {
+    self.localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:seconds];
+    [[UIApplication sharedApplication] scheduleLocalNotification:self.localNotification];
+}
+#endif
+
+#pragma mark 生成动画, 并递归调用, 如果是最后一次,弹框确定是否停止
 - (void)scaleTransformAnimationWithButton:(UIButton *)sender withScale:(CGFloat)scale withLastCount:(BOOL)isLastCount {
     
     _repeatCount ++;
@@ -132,25 +140,24 @@ static const NSTimeInterval kInitialTime = 25;
     __block CGFloat newScale = scale;
     
     if (!isLastCount) {
+#pragma mark 不是最后一次
         [UIView animateWithDuration:0.075 animations:^{
             sender.transform = CGAffineTransformMakeScale(newScale, newScale);
         } completion:^(BOOL finished) {
             
-            if (newScale == 1) {
-                newScale = 1.15;
-            } else {
-                newScale = 1;
-            }
+            newScale = (newScale == 1)? 1.15: 1;
             
             BOOL isLastCount = (_repeatCount == 4)? YES: NO;
             
             [self scaleTransformAnimationWithButton:sender withScale:newScale withLastCount:isLastCount];
         }];
     } else {
+#pragma mark 弹出 是否删除的Alert
         _repeatCount = 0;
         
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"中断番茄" message:@"您确定要中断这个番茄吗?" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *act1 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+#pragma mark 点击确定停止 重置参数
             [_timeActionBtn setImage:kIMAGE(@"play_handwrite") forState:UIControlStateNormal];
             sender.selected = !sender.selected;
             [_timer invalidate];
@@ -181,7 +188,18 @@ static const NSTimeInterval kInitialTime = 25;
     }
 }
 
-#pragma mark 定时器
+#pragma mark 删除本地通知
+#ifdef IOS_VERSION_10
+- (void)removeLocationNotification {
+    [[UNUserNotificationCenter currentNotificationCenter] removeAllPendingNotificationRequests];
+}
+#else
+- (void)removeLocationNotification {
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+}
+#endif
+
+#pragma mark 定时器事件 修改显示时间
 - (void)timerFired:(NSTimer *)t {
     if (_tomatoSeconds == 0) {
         [t invalidate];
@@ -196,6 +214,7 @@ static const NSTimeInterval kInitialTime = 25;
     }
 }
 
+#pragma mark 设置倒计时显示时间
 - (NSString *)getTimeSecondsStr {
     NSString *timeStr = @"";
     if (_tomatoSeconds%60 < 10) {
@@ -218,6 +237,7 @@ static const NSTimeInterval kInitialTime = 25;
 - (void)setTimeSpacing:(NSInteger)timeSpacing {
     _timeSpacing = timeSpacing;
     if (_timeSpacing == 0) {
+        //时间初始值
         _tomatoTime = kInitialTime;
         _tomatoSeconds = _tomatoTime * 60;
     } else {
@@ -264,7 +284,6 @@ static const NSTimeInterval kInitialTime = 25;
     }
     return _content;
 }
-
 #else
 - (UILocalNotification *)localNotification {
     if (!_localNotification) {
