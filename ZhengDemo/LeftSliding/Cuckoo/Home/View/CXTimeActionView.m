@@ -9,13 +9,16 @@
 #import "CXTimeActionView.h"
 
 #import <AVFoundation/AVFoundation.h>
+#import <UserNotifications/UserNotifications.h>
 
 static const NSTimeInterval kMinTime = 10;
 static const NSTimeInterval kMaxTime = 55;
 static const NSTimeInterval kTimeInterval = 5;
 static const NSTimeInterval kInitialTime = 25;
 
-@interface CXTimeActionView ()
+@interface CXTimeActionView () {
+    UNUserNotificationCenter *_center;
+}
 
 @property (nonatomic, strong) UILabel *leftInfoLbl;
 @property (nonatomic, strong) UILabel *timeTitleLbl;
@@ -25,18 +28,31 @@ static const NSTimeInterval kInitialTime = 25;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) AVAudioPlayer *player;
 
+#ifdef IOS_VERSION_10
+@property (nonatomic, strong) UNMutableNotificationContent *content;
+@property (nonatomic, strong) UNTimeIntervalNotificationTrigger *trigger;
+@property (nonatomic, strong) UNNotificationRequest *request;
+#else
+@property (nonatomic, strong) UILocalNotification *localNotification; //本地通知
+#endif
+
 @property (nonatomic, assign) NSInteger tomatoTime; //番茄时间
 @property (nonatomic, assign) NSInteger tomatoSeconds; //计时秒数
 @property (nonatomic, assign) BOOL isFire; //定时器是否开启
+@property (nonatomic, assign) NSInteger repeatCount; //重复次数
 
 @end
 
 @implementation CXTimeActionView
 
 #pragma mark - 点击事件
+#pragma mark 是否打开音乐
+- (void)musicSettingsWithState:(BOOL)isHave {
+    _player.volume = isHave? 0.5f: 0.0f;
+}
+
 #pragma mark 加减时间
 - (void)tomatoTimeIsChanged:(UISegmentedControl *)sender {
-    
     if (sender.selectedSegmentIndex == 0) {
         if (_tomatoTime == kMinTime) {
             [_segment setEnabled:NO forSegmentAtIndex:0];
@@ -76,10 +92,93 @@ static const NSTimeInterval kInitialTime = 25;
 
 #pragma mark 开始计时
 - (void)timeActionBtnAction:(UIButton *)sender {
-    _tomatoSeconds = _tomatoTime * 60;
-    _isFire = YES;
-    [self.player play];
-    [self.timer fire];
+    //TODO:  (关闭加减号点击)  应该打开
+    if (!sender.selected) {
+        [_segment setEnabled:NO forSegmentAtIndex:0];
+        [_segment setEnabled:NO forSegmentAtIndex:1];
+    }
+    
+    if (_tomatoSeconds != 0) {
+#ifdef IOS_VERSION_10
+        
+        _trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:_tomatoSeconds repeats:NO];
+        _request = [UNNotificationRequest requestWithIdentifier:@"kFinishTomatoTime" content:self.content trigger:_trigger];
+        [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:_request withCompletionHandler:^(NSError * _Nullable error) {
+            
+        }];
+#else
+        
+        self.localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:_tomatoSeconds];
+        [[UIApplication sharedApplication] scheduleLocalNotification:self.localNotification];
+#endif
+    }
+
+    if (sender.selected) {
+        [self scaleTransformAnimationWithButton:sender withScale:1.15 withLastCount:NO];
+    } else {
+        _tomatoSeconds = _tomatoTime * 60;
+        _isFire = YES;
+        [self.player play];
+        [self.timer fire];
+        [_timeActionBtn setImage:kIMAGE(@"newStopButton") forState:UIControlStateNormal];
+        sender.selected = !sender.selected;
+    }
+}
+
+- (void)scaleTransformAnimationWithButton:(UIButton *)sender withScale:(CGFloat)scale withLastCount:(BOOL)isLastCount {
+    
+    _repeatCount ++;
+    
+    __block CGFloat newScale = scale;
+    
+    if (!isLastCount) {
+        [UIView animateWithDuration:0.075 animations:^{
+            sender.transform = CGAffineTransformMakeScale(newScale, newScale);
+        } completion:^(BOOL finished) {
+            
+            if (newScale == 1) {
+                newScale = 1.15;
+            } else {
+                newScale = 1;
+            }
+            
+            BOOL isLastCount = (_repeatCount == 4)? YES: NO;
+            
+            [self scaleTransformAnimationWithButton:sender withScale:newScale withLastCount:isLastCount];
+        }];
+    } else {
+        _repeatCount = 0;
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"中断番茄" message:@"您确定要中断这个番茄吗?" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *act1 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [_timeActionBtn setImage:kIMAGE(@"play_handwrite") forState:UIControlStateNormal];
+            sender.selected = !sender.selected;
+            [_timer invalidate];
+            _timer = nil;
+            _isFire = NO;
+            _tomatoTime = 25;
+            _tomatoSeconds = _tomatoTime * 60;
+            _timeShowLbl.text = [NSString stringWithFormat:@"%ld分钟",_tomatoTime];
+            [_player stop];
+            [_segment setEnabled:YES forSegmentAtIndex:0];
+            [_segment setEnabled:YES forSegmentAtIndex:1];
+            
+#pragma mark 删除本地通知
+#ifdef IOS_VERSION_10
+            [[UNUserNotificationCenter currentNotificationCenter] removeAllPendingNotificationRequests];
+#else
+            [[UIApplication sharedApplication] cancelAllLocalNotifications];
+#endif
+        }];
+        
+        UIAlertAction *act2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+        
+        [alert addAction:act1];
+        [alert addAction:act2];
+        
+        [self.viewController presentViewController:alert animated:YES completion:nil];
+        
+    }
 }
 
 #pragma mark 定时器
@@ -115,13 +214,29 @@ static const NSTimeInterval kInitialTime = 25;
     return timeStr;
 }
 
+#pragma mark - 接口值
+- (void)setTimeSpacing:(NSInteger)timeSpacing {
+    _timeSpacing = timeSpacing;
+    if (_timeSpacing == 0) {
+        _tomatoTime = kInitialTime;
+        _tomatoSeconds = _tomatoTime * 60;
+    } else {
+        
+    }
+}
+
+- (void)setVolume:(CGFloat)volume {
+    _volume = volume;
+    [self addSubviewsInView];
+}
+
 #pragma mark - Init Method
 - (instancetype)init {
     self = [super init];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
-        _tomatoTime = kInitialTime;
-        [self addSubviewsInView];
+        _repeatCount = 0;
+        _center = [UNUserNotificationCenter currentNotificationCenter];
     }
     return self;
 }
@@ -138,14 +253,39 @@ static const NSTimeInterval kInitialTime = 25;
     [self layoutSubviewsInView];
 }
 
+
+#ifdef IOS_VERSION_10
+- (UNMutableNotificationContent *)content {
+    if (!_content) {
+        _content = [[UNMutableNotificationContent alloc] init];
+        _content.title = [NSString localizedUserNotificationStringForKey:@"番茄提示!" arguments:nil];
+        _content.body = [NSString localizedUserNotificationStringForKey:@"完成了一个番茄钟" arguments:nil];
+        _content.sound = [UNNotificationSound defaultSound];
+    }
+    return _content;
+}
+
+#else
+- (UILocalNotification *)localNotification {
+    if (!_localNotification) {
+        _localNotification = [UILocalNotification new];
+        _localNotification.alertTitle = @"番茄提示";
+        _localNotification.alertBody = @"完成了一个番茄钟";
+        _localNotification.soundName = UILocalNotificationDefaultSoundName;
+    }
+    return _localNotification;
+}
+#endif
+
+
 - (AVAudioPlayer *)player {
     if (!_player) {
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
         NSString *path = [[NSBundle mainBundle]pathForResource:@"薛之谦 - 演员" ofType:@"mp3"];
         NSURL *url = [NSURL fileURLWithPath:path];
-        _player = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:nil];
+        _player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
         _player.numberOfLoops = -1;
-        _player.volume = 0.5f;
+        _player.volume = _volume;
         [_player prepareToPlay];
     }
     return _player;
@@ -196,6 +336,7 @@ static const NSTimeInterval kInitialTime = 25;
     if (!_timeActionBtn) {
         _timeActionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_timeActionBtn setImage:kIMAGE(@"play_handwrite") forState:UIControlStateNormal];
+        [_timeActionBtn setImage:kIMAGE(@"newStopButton") forState:UIControlStateSelected];
         [_timeActionBtn addTarget:self action:@selector(timeActionBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _timeActionBtn;
@@ -242,7 +383,6 @@ static const NSTimeInterval kInitialTime = 25;
         _leftInfoLbl.layer.borderColor = [[UIColor blackColor] CGColor];
         _leftInfoLbl.layer.borderWidth = 1;
         _leftInfoLbl.textAlignment = NSTextAlignmentCenter;
-        
         _leftInfoLbl.attributedText = [self getTitleStr:@"TODAY\n0 mins\nPOMOS\nx 0\nDAY\nNo.1"];
     }
     return _leftInfoLbl;

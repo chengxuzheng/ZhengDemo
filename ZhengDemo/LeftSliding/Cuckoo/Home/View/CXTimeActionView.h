@@ -10,4 +10,11 @@
 
 @interface CXTimeActionView : UIView
 
+@property (nonatomic, assign) NSInteger timeSpacing; //程序终止间隔时间
+@property (nonatomic, assign) CGFloat volume; //音量
+
+
+/** 控制是否有音乐 **/
+- (void)musicSettingsWithState:(BOOL)isHave;
+
 @end

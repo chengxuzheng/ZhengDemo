@@ -23,7 +23,9 @@
 @implementation CXCuckooHomeViewController
 
 #pragma mark - Button Action
+#pragma mark 声音
 - (void)voiceBtnAction:(UIButton *)sender {
+    [_bTimeView musicSettingsWithState:sender.selected];
     sender.selected = !sender.selected;
 }
 
@@ -48,6 +50,7 @@
     
     _recordBtn.hidden = NO;
     _guideBtn.hidden = NO;
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -134,6 +137,9 @@
 - (CXTimeActionView *)bTimeView {
     if (!_bTimeView) {
         _bTimeView = [[CXTimeActionView alloc] init];
+        NSDate *terminateDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"kTerminateDate"];
+        _bTimeView.timeSpacing = [NSString stringWithFormat:@"%lf",[[NSDate date] timeIntervalSinceDate:terminateDate]].integerValue;
+        _bTimeView.volume = _voiceBtn.selected? 0.0f: 0.5f;
     }
     return _bTimeView;
 }

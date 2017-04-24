@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0F90574D1EADAA39006A77C6 /* 薛之谦 - 演员.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F90574C1EADAA39006A77C6 /* 薛之谦 - 演员.mp3 */; };
 		0F90574F1EADAA95006A77C6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F90574E1EADAA95006A77C6 /* AVFoundation.framework */; };
+		0F9057551EADCD47006A77C6 /* UIView+UIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9057521EADCD47006A77C6 /* UIView+UIViewController.m */; };
+		0F9057561EADCD47006A77C6 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9057541EADCD47006A77C6 /* UIViewExt.m */; };
 		0FD789701EAAF87900574E64 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FD7896D1EAAF87900574E64 /* Info.plist */; };
 		0FD789711EAAF87900574E64 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FD7896E1EAAF87900574E64 /* Launch Screen.storyboard */; };
 		0FD789761EAAF95600574E64 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3407E1EA9A08D00122055 /* main.m */; };
@@ -51,6 +53,10 @@
 /* Begin PBXFileReference section */
 		0F90574C1EADAA39006A77C6 /* 薛之谦 - 演员.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "薛之谦 - 演员.mp3"; sourceTree = "<group>"; };
 		0F90574E1EADAA95006A77C6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0F9057511EADCD47006A77C6 /* UIView+UIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIViewController.h"; sourceTree = "<group>"; };
+		0F9057521EADCD47006A77C6 /* UIView+UIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIViewController.m"; sourceTree = "<group>"; };
+		0F9057531EADCD47006A77C6 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
+		0F9057541EADCD47006A77C6 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
 		0FD7896C1EAAF87900574E64 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		0FD7896D1EAAF87900574E64 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FD7896E1EAAF87900574E64 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -122,6 +128,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F9057501EADCD47006A77C6 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				0F9057511EADCD47006A77C6 /* UIView+UIViewController.h */,
+				0F9057521EADCD47006A77C6 /* UIView+UIViewController.m */,
+				0F9057531EADCD47006A77C6 /* UIViewExt.h */,
+				0F9057541EADCD47006A77C6 /* UIViewExt.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		0FD789741EAAF91100574E64 /* SourceFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +325,7 @@
 		0FE340C81EA9BC8B00122055 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				0F9057501EADCD47006A77C6 /* Category */,
 				0FE340C91EA9BC8B00122055 /* NavItemTool */,
 			);
 			path = Vendors;
@@ -587,7 +605,9 @@
 				0FE341571EAA0DD100122055 /* CXBaseTableViewController.m in Sources */,
 				0FE340E71EA9FA9000122055 /* CXRevealViewController.m in Sources */,
 				0FE340D11EA9BC8B00122055 /* UIView+RMAdditions.m in Sources */,
+				0F9057551EADCD47006A77C6 /* UIView+UIViewController.m in Sources */,
 				0FE340B31EA9A1D900122055 /* CXAppDelegate.m in Sources */,
+				0F9057561EADCD47006A77C6 /* UIViewExt.m in Sources */,
 				0FD7898D1EAB052800574E64 /* CXTimeActionView.m in Sources */,
 				0FD7898A1EAAFE2A00574E64 /* CXCuckoNavigtionController.m in Sources */,
 				0FE340D21EA9BC8B00122055 /* UIViewController+YCCommon.m in Sources */,
