@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F90574D1EADAA39006A77C6 /* 薛之谦 - 演员.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F90574C1EADAA39006A77C6 /* 薛之谦 - 演员.mp3 */; };
+		0F90574F1EADAA95006A77C6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F90574E1EADAA95006A77C6 /* AVFoundation.framework */; };
 		0FD789701EAAF87900574E64 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FD7896D1EAAF87900574E64 /* Info.plist */; };
 		0FD789711EAAF87900574E64 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FD7896E1EAAF87900574E64 /* Launch Screen.storyboard */; };
 		0FD789761EAAF95600574E64 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3407E1EA9A08D00122055 /* main.m */; };
@@ -47,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F90574C1EADAA39006A77C6 /* 薛之谦 - 演员.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "薛之谦 - 演员.mp3"; sourceTree = "<group>"; };
+		0F90574E1EADAA95006A77C6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		0FD7896C1EAAF87900574E64 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		0FD7896D1EAAF87900574E64 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FD7896E1EAAF87900574E64 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F90574F1EADAA95006A77C6 /* AVFoundation.framework in Frameworks */,
 				0FE340D71EA9D3BE00122055 /* UIKit.framework in Frameworks */,
 				37FB54BE81F6DC7269F5B124 /* libPods-ZhengDemo.a in Frameworks */,
 			);
@@ -200,6 +205,7 @@
 		0FE3407C1EA9A08D00122055 /* ZhengDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0F90574C1EADAA39006A77C6 /* 薛之谦 - 演员.mp3 */,
 				0FE340B01EA9A1D900122055 /* AppDelegate */,
 				0FE340B71EA9A80100122055 /* Base */,
 				0FE340E31EA9FA7400122055 /* Root */,
@@ -374,6 +380,7 @@
 		3428437A8485135A6C4C5234 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F90574E1EADAA95006A77C6 /* AVFoundation.framework */,
 				0FE340D61EA9D3BE00122055 /* UIKit.framework */,
 				B3FF6459E8CDE79DCAA45794 /* libPods-ZhengDemo.a */,
 			);
@@ -502,6 +509,7 @@
 				0FD7897F1EAAFA9800574E64 /* ImageSets.xcassets in Resources */,
 				0FD789711EAAF87900574E64 /* Launch Screen.storyboard in Resources */,
 				0FD789701EAAF87900574E64 /* Info.plist in Resources */,
+				0F90574D1EADAA39006A77C6 /* 薛之谦 - 演员.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
