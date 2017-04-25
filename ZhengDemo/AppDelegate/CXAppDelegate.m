@@ -40,9 +40,7 @@
     //注册通知
     [self authorizationNotification];
     
-    [CXNetRequest postWithInterface:@"123" withParam:@{@"123":@"123"} withSuccessBlock:^(NSDictionary * _Nullable response) {
-        
-        NSLog(@"%@",response);
+    [CXNetRequest postWithInterfaceStyle:CXNetRequestInterfaceStyleDebug withInterface:@"" withParam:@{@1:@1} withSuccessBlock:^(NSDictionary * _Nullable response) {
         
     } withErrorBlock:^(NSError * _Nonnull error) {
         

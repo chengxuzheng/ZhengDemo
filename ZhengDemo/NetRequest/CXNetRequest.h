@@ -23,7 +23,8 @@ typedef NS_ENUM(NSInteger, CXNetRequestInterfaceStyle) {
  @param success 成功回调
  @param failure 失败回调
  */
-+ (void)postWithInterface:(nonnull NSString *)interface
++ (void)postWithInterfaceStyle:(CXNetRequestInterfaceStyle)style
+                 withInterface:(nonnull NSString *)interface
                 withParam:(nullable NSDictionary *)param
          withSuccessBlock:(void(^_Nonnull)(NSDictionary *_Nullable response))success
            withErrorBlock:(void(^_Nonnull)(NSError * _Nonnull error))failure;
