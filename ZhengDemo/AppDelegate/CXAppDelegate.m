@@ -28,12 +28,12 @@
     self.revealVC = [CXRevealViewController revealControllerWithFrontViewController:nil leftViewController:nil];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-//    self.window.rootViewController = self.revealVC;
+    self.window.rootViewController = self.revealVC;
     [self.window makeKeyAndVisible];
     
     CXCuckooHomeViewController *chVC = [[CXCuckooHomeViewController alloc] init];
     CXCuckoNavigtionController *cNavVC = [[CXCuckoNavigtionController alloc] initWithRootViewController:chVC];
-    self.window.rootViewController = cNavVC;
+//    self.window.rootViewController = cNavVC;
     
     //注册通知
     if (IOS_VERSION_10) {
