@@ -14,6 +14,8 @@
 #import "CXCuckoNavigtionController.h"
 #import "CXCuckooHomeViewController.h"
 
+#import "CXNetRequest.h"
+
 @interface CXAppDelegate ()  <UNUserNotificationCenterDelegate>
 
 @property (nonatomic, strong) CXRevealViewController *revealVC;
@@ -31,35 +33,25 @@
     self.window.rootViewController = self.revealVC;
     [self.window makeKeyAndVisible];
     
-    CXCuckooHomeViewController *chVC = [[CXCuckooHomeViewController alloc] init];
-    CXCuckoNavigtionController *cNavVC = [[CXCuckoNavigtionController alloc] initWithRootViewController:chVC];
+//    CXCuckooHomeViewController *chVC = [[CXCuckooHomeViewController alloc] init];
+//    CXCuckoNavigtionController *cNavVC = [[CXCuckoNavigtionController alloc] initWithRootViewController:chVC];
 //    self.window.rootViewController = cNavVC;
     
     //注册通知
-    if (IOS_VERSION_10) {
-        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-        //监听回调事件
-        center.delegate = self;
+    [self authorizationNotification];
+    
+    [CXNetRequest postWithInterface:@"123" withParam:@{@"123":@"123"} withSuccessBlock:^(NSDictionary * _Nullable response) {
         
-        //iOS 10 使用以下方法注册，才能得到授权
-        [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert +
-                                                 UNAuthorizationOptionSound +
-                                                 UIUserNotificationTypeBadge)
-                              completionHandler:^(BOOL granted, NSError * _Nullable error) {
-                                  
-                              }];
+        NSLog(@"%@",response);
         
-        //获取当前的通知设置，UNNotificationSettings 是只读对象，不能直接修改，只能通过以下方法获取
-        [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
-            
-        }];
-    } else {
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
-        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    }
+    } withErrorBlock:^(NSError * _Nonnull error) {
+        
+    }];
     
     return YES;
+
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 
@@ -94,6 +86,31 @@
     completionHandler(UNNotificationPresentationOptionAlert);
 }
 
+#pragma mark - 授权推送
+- (void)authorizationNotification {
+    if (IOS_VERSION_10) {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        //监听回调事件
+        center.delegate = self;
+        
+        //iOS 10 使用以下方法注册，才能得到授权
+        [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert +
+                                                 UNAuthorizationOptionSound +
+                                                 UIUserNotificationTypeBadge)
+                              completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                                  
+                              }];
+        
+        //获取当前的通知设置，UNNotificationSettings 是只读对象，不能直接修改，只能通过以下方法获取
+        [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+            
+        }];
+    } else {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    }
+    
+}
 
 
 @end
