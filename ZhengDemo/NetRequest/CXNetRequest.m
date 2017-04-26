@@ -77,7 +77,7 @@ static AFNetworkReachabilityManager *_reachabilityManager;
         [CXNetRequest showNetWorking];
         
         NSString *fullUrlStr = [CXNetRequest getFullUrlStrWithInterfaceStyle:style withInterface:interface];
-        
+            
         [_manager GET:fullUrlStr parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -112,11 +112,13 @@ static AFNetworkReachabilityManager *_reachabilityManager;
                 formatter.dateFormat = @"yyyyMMddHHmmss";
                 NSString *fileName = [NSString stringWithFormat:@"%@.png", [formatter stringFromDate:[NSDate date]]];
                 [formData appendPartWithFileData:data name:@"file" fileName:fileName mimeType:mineType];
-                
             } progress:^(NSProgress * _Nonnull uploadProgress) {
                 
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                
+                [CXNetRequest hideNetWorking];
+                NSMutableDictionary *newParam = [responseObject mutableCopy];
+                [newParam setObject:netStyle forKey:kNetStyleKey];
+                success([newParam copy]);
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 [CXNetRequest hideNetWorking];
                 failure(error);

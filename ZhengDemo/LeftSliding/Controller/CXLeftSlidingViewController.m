@@ -33,21 +33,32 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] init];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.contentView.backgroundColor = kRGB_COLOR(indexPath.row*10, indexPath.row*20, indexPath.row*25, 1);
+
+    switch (indexPath.row) {
+        case 0:
+            cell.textLabel.text = @"本地推送+背景音乐+计时";
+            break;
+        default:
+            break;
+    }
+    
     return cell;
 }
 
 #pragma mark - UITableView Delegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    CXCuckooHomeViewController *chVC = [[CXCuckooHomeViewController alloc] init];
-    CXCuckoNavigtionController *cNavVC = [[CXCuckoNavigtionController alloc] initWithRootViewController:chVC];
-    [self presentViewController:cNavVC animated:YES completion:^{
-        
-    }];
+    if (indexPath.row == 0) {
+        CXCuckooHomeViewController *chVC = [[CXCuckooHomeViewController alloc] init];
+        CXCuckoNavigtionController *cNavVC = [[CXCuckoNavigtionController alloc] initWithRootViewController:chVC];
+        [self presentViewController:cNavVC animated:YES completion:nil];
+    }
+    
     
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 55;
+}
 
 @end
