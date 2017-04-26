@@ -18,7 +18,6 @@
 
 @interface CXAppDelegate ()  <UNUserNotificationCenterDelegate>
 
-@property (nonatomic, strong) CXRevealViewController *revealVC;
 
 @end
 
@@ -39,14 +38,12 @@
     
     //注册通知
     [self authorizationNotification];
-    
-    
-    [CXNetRequest uploadWithData:[NSData new] withMineType:@"image/png" withInterfaceStyle:CXNetRequestInterfaceStyleDebug withInterface:@"" withParam:nil withSuccessBlock:^(NSDictionary * _Nullable response) {
+        
+    [CXNetRequest uploadWithInterfaceStyle:CXNetRequestInterfaceStyleDebug withMineType:@"" withData:[NSData new] withInterface:@"" withParam:nil withSuccessBlock:^(NSDictionary * _Nullable response) {
         
     } withErrorBlock:^(NSError * _Nonnull error) {
         
     }];
-
     
     return YES;
 

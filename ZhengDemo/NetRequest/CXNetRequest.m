@@ -17,7 +17,6 @@ static NSString *const kReleaseInterface = @"";
 static NSString *const kDebugInterface = @"";
 static AFHTTPSessionManager *_manager;
 static AFNetworkReachabilityManager *_reachabilityManager;
-//static NSCache *_cache;
 
 @interface CXNetRequest ()
 
@@ -27,10 +26,10 @@ static AFNetworkReachabilityManager *_reachabilityManager;
 
 + (void)initialize {
     _manager = [AFHTTPSessionManager manager];
+    _manager.responseSerializer = [AFJSONResponseSerializer serializer];
     _reachabilityManager = [AFNetworkReachabilityManager sharedManager];
     [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
     [CXNetRequest defaultManager];
-//    _cache = [[NSCache alloc] init];
 }
 
 + (instancetype)defaultManager {
@@ -47,6 +46,8 @@ static AFNetworkReachabilityManager *_reachabilityManager;
                      withParam:(NSDictionary *)param
               withSuccessBlock:(void (^)(NSDictionary * _Nullable))success
                 withErrorBlock:(void (^)(NSError * _Nonnull))failure {
+    
+    kINTERFACE_STYLE;
     
     [CXNetRequest currentNetState:^(NSString *netStyle) {//netStyle WWAN或WIFI
         [CXNetRequest showNetWorking];
@@ -73,6 +74,8 @@ static AFNetworkReachabilityManager *_reachabilityManager;
              withSuccessBlock:(void (^)(NSDictionary * _Nullable))success
                withErrorBlock:(void (^)(NSError * _Nonnull))failure {
     
+    kINTERFACE_STYLE;
+    
     [CXNetRequest currentNetState:^(NSString *netStyle) {//netStyle WWAN或WIFI
         [CXNetRequest showNetWorking];
         
@@ -92,13 +95,15 @@ static AFNetworkReachabilityManager *_reachabilityManager;
     }];
 }
 
-+ (void)uploadWithData:(NSData *)data
-          withMineType:(NSString *)mineType
-    withInterfaceStyle:(CXNetRequestInterfaceStyle)style
-         withInterface:(NSString *)interface
-             withParam:(NSDictionary *)param
-      withSuccessBlock:(void (^)(NSDictionary * _Nullable))success
-        withErrorBlock:(void (^)(NSError * _Nonnull))failure {
++ (void)uploadWithInterfaceStyle:(CXNetRequestInterfaceStyle)style
+                    withMineType:(NSString *)mineType
+                        withData:(NSData *)data
+                   withInterface:(NSString *)interface
+                       withParam:(NSDictionary *)param
+                withSuccessBlock:(void (^)(NSDictionary * _Nullable))success
+                  withErrorBlock:(void (^)(NSError * _Nonnull))failure {
+    
+    kINTERFACE_STYLE;
     
     [CXNetRequest currentNetState:^(NSString *netStyle) {//netStyle WWAN或WIFI
         
@@ -126,7 +131,6 @@ static AFNetworkReachabilityManager *_reachabilityManager;
         }];
     }];
 }
-
 
 #pragma mark - 返回网络类型
 + (void)currentNetState:(void(^)(NSString *))netStyle {

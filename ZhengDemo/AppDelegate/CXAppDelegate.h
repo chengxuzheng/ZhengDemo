@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class CXRevealViewController;
 @interface CXAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (nonatomic, strong) CXRevealViewController *revealVC;
 
 
 @end

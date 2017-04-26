@@ -22,8 +22,10 @@
 
 #ifdef DEBUG
 #define kCX_LOG(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+#define kINTERFACE_STYLE style = CXNetRequestInterfaceStyleDebug
 #else
 #define kCX_LOG(...)
+#define kINTERFACE_STYLE style = CXNetRequestInterfaceStyleRelease
 #endif
 
 #define kCX_FONT(R) [UIFont systemFontOfSize:R]

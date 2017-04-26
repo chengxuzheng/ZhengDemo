@@ -7,6 +7,9 @@
 //
 
 #import "CXCuckooHomeViewController.h"
+#import "CXRevealViewController.h"
+
+#import "CXAppDelegate.h"
 
 #import "CXTimeActionView.h"
 
@@ -146,9 +149,8 @@
 
 #pragma mark - 点击事件
 - (void)backBarButtonPressed:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    CXAppDelegate *delegate = (CXAppDelegate *)[UIApplication sharedApplication].delegate;
+    [UIApplication sharedApplication].delegate.window.rootViewController = delegate.revealVC;
 }
 
 @end

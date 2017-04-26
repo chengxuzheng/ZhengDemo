@@ -60,13 +60,13 @@ static NSString *_Nonnull const kNetStyleKey = @"netStyle";
  @param success 成功回调
  @param failure 失败回调
  */
-+ (void)uploadWithData:(nonnull NSData *)data
-          withMineType:(nonnull NSString *)mineType
-    withInterfaceStyle:(CXNetRequestInterfaceStyle)style
-         withInterface:(nonnull NSString *)interface
-             withParam:(nullable NSDictionary *)param
-      withSuccessBlock:(void(^_Nonnull)(NSDictionary *_Nullable response))success
-        withErrorBlock:(void(^_Nonnull)(NSError * _Nonnull error))failure;
++ (void)uploadWithInterfaceStyle:(CXNetRequestInterfaceStyle)style
+                    withMineType:(nonnull NSString *)mineType
+                        withData:(nonnull NSData *)data
+                   withInterface:(nonnull NSString *)interface
+                       withParam:(nullable NSDictionary *)param
+                withSuccessBlock:(void(^_Nonnull)(NSDictionary *_Nullable response))success
+                  withErrorBlock:(void(^_Nonnull)(NSError * _Nonnull error))failure;
 
 
 

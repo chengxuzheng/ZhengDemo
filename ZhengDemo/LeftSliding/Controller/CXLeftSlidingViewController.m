@@ -51,7 +51,7 @@
     if (indexPath.row == 0) {
         CXCuckooHomeViewController *chVC = [[CXCuckooHomeViewController alloc] init];
         CXCuckoNavigtionController *cNavVC = [[CXCuckoNavigtionController alloc] initWithRootViewController:chVC];
-        [self presentViewController:cNavVC animated:YES completion:nil];
+        [UIApplication sharedApplication].keyWindow.rootViewController = cNavVC;
     }
     
     
