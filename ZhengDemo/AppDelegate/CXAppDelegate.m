@@ -40,11 +40,19 @@
     //注册通知
     [self authorizationNotification];
     
-    [CXNetRequest postWithInterfaceStyle:CXNetRequestInterfaceStyleDebug withInterface:@"" withParam:@{@1:@1} withSuccessBlock:^(NSDictionary * _Nullable response) {
+    
+    [CXNetRequest postWithInterfaceStyle:CXNetRequestInterfaceStyleRelease withInterface:@"1111" withParam:@{@1111:@1111} withSuccessBlock:^(NSDictionary * _Nullable response) {
         
     } withErrorBlock:^(NSError * _Nonnull error) {
         
     }];
+    
+    [CXNetRequest postWithInterfaceStyle:CXNetRequestInterfaceStyleRelease withInterface:@"2222" withParam:@{@2222:@2222} withSuccessBlock:^(NSDictionary * _Nullable response) {
+        
+    } withErrorBlock:^(NSError * _Nonnull error) {
+        
+    }];
+
     
     return YES;
 

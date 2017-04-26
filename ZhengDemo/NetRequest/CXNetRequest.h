@@ -13,12 +13,16 @@ typedef NS_ENUM(NSInteger, CXNetRequestInterfaceStyle) {
     CXNetRequestInterfaceStyleRelease
 };
 
+/** 网络类型 WIFI或WWAN **/
+static NSString *_Nonnull const kNetStyleKey = @"netStyle";
+
 @interface CXNetRequest : NSObject
 
 /**
  POST 请求
 
- @param interface 接口
+ @param style 域名类型
+ @param interface 接口Url
  @param param 参数
  @param success 成功回调
  @param failure 失败回调
@@ -28,6 +32,24 @@ typedef NS_ENUM(NSInteger, CXNetRequestInterfaceStyle) {
                 withParam:(nullable NSDictionary *)param
          withSuccessBlock:(void(^_Nonnull)(NSDictionary *_Nullable response))success
            withErrorBlock:(void(^_Nonnull)(NSError * _Nonnull error))failure;
+
+
+/**
+ Get 请求
+
+ @param style 域名类型
+ @param interface 接口Url
+ @param param 参数
+ @param success 成功回调
+ @param failure 失败回调
+ */
++ (void)getWithInterfaceStyle:(CXNetRequestInterfaceStyle)style
+                withInterface:(nonnull NSString *)interface
+                    withParam:(nullable NSDictionary *)param
+             withSuccessBlock:(void(^_Nonnull)(NSDictionary *_Nullable response))success
+               withErrorBlock:(void(^_Nonnull)(NSError * _Nonnull error))failure;
+
+
 
 
 
