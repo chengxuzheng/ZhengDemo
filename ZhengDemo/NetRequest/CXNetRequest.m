@@ -92,20 +92,52 @@ static AFNetworkReachabilityManager *_reachabilityManager;
     }];
 }
 
++ (void)uploadWithData:(NSData *)data
+          withMineType:(NSString *)mineType
+    withInterfaceStyle:(CXNetRequestInterfaceStyle)style
+         withInterface:(NSString *)interface
+             withParam:(NSDictionary *)param
+      withSuccessBlock:(void (^)(NSDictionary * _Nullable))success
+        withErrorBlock:(void (^)(NSError * _Nonnull))failure {
+    
+    [CXNetRequest currentNetState:^(NSString *netStyle) {//netStyle WWAN或WIFI
+        
+        [CXNetRequest alertMessageWithNetStyle:netStyle withUseWWANNetUpload:^{
+            [CXNetRequest showNetWorking];
+            
+            NSString *fullUrlStr = [CXNetRequest getFullUrlStrWithInterfaceStyle:style withInterface:interface];
+            
+            [_manager POST:fullUrlStr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+                NSDateFormatter *formatter = [NSDateFormatter new];
+                formatter.dateFormat = @"yyyyMMddHHmmss";
+                NSString *fileName = [NSString stringWithFormat:@"%@.png", [formatter stringFromDate:[NSDate date]]];
+                [formData appendPartWithFileData:data name:@"file" fileName:fileName mimeType:mineType];
+                
+            } progress:^(NSProgress * _Nonnull uploadProgress) {
+                
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                [CXNetRequest hideNetWorking];
+                failure(error);
+            }];
+        }];
+    }];
+}
+
 
 #pragma mark - 返回网络类型
 + (void)currentNetState:(void(^)(NSString *))netStyle {
     
+    [_reachabilityManager startMonitoring];
     [_reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (status == AFNetworkReachabilityStatusNotReachable) {
             [CXNetRequest alertMessageWithNotReachable];
         } else {
-            NSString *statusNameStr = (status == AFNetworkReachabilityStatusReachableViaWWAN)? @"WIFI": @"WWAN";
+            NSString *statusNameStr = (status == AFNetworkReachabilityStatusReachableViaWWAN)? @"WWAN": @"WIFI";
             netStyle(statusNameStr);
         }
     }];
-    
-    [_reachabilityManager startMonitoring];
 }
 
 #pragma mark - 获取测试或发布的域名
@@ -127,12 +159,29 @@ static AFNetworkReachabilityManager *_reachabilityManager;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
-#pragma mark - 无网络弹窗提醒
+#pragma mark - 弹窗提醒
+#pragma mark 无网络
 + (void)alertMessageWithNotReachable {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:kNetErrorTitle message:kNetErrorMessage preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *act = [UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:act];
     [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+}
+
+#pragma mark 是否在移动网络下载
++ (void)alertMessageWithNetStyle:(NSString *)style withUseWWANNetUpload:(void(^)())block {
+    if ([style isEqualToString:@"WWAN"]) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"正在使用移动网络" message:@"是否使用移动网络进行上传" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *act1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:act1];
+        UIAlertAction *act2 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            block();
+        }];
+        [alert addAction:act2];
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+    } else {
+        block();
+    }
 }
 
 

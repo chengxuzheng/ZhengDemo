@@ -41,13 +41,7 @@
     [self authorizationNotification];
     
     
-    [CXNetRequest postWithInterfaceStyle:CXNetRequestInterfaceStyleRelease withInterface:@"1111" withParam:@{@1111:@1111} withSuccessBlock:^(NSDictionary * _Nullable response) {
-        
-    } withErrorBlock:^(NSError * _Nonnull error) {
-        
-    }];
-    
-    [CXNetRequest postWithInterfaceStyle:CXNetRequestInterfaceStyleRelease withInterface:@"2222" withParam:@{@2222:@2222} withSuccessBlock:^(NSDictionary * _Nullable response) {
+    [CXNetRequest uploadWithData:[NSData new] withMineType:@"image/png" withInterfaceStyle:CXNetRequestInterfaceStyleDebug withInterface:@"" withParam:nil withSuccessBlock:^(NSDictionary * _Nullable response) {
         
     } withErrorBlock:^(NSError * _Nonnull error) {
         

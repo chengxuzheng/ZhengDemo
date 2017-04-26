@@ -50,6 +50,23 @@ static NSString *_Nonnull const kNetStyleKey = @"netStyle";
                withErrorBlock:(void(^_Nonnull)(NSError * _Nonnull error))failure;
 
 
+/**
+ 上传文件
+
+ @param data 二进制数据
+ @param style 域名类型
+ @param interface 接口Url
+ @param param 参数
+ @param success 成功回调
+ @param failure 失败回调
+ */
++ (void)uploadWithData:(nonnull NSData *)data
+          withMineType:(nonnull NSString *)mineType
+    withInterfaceStyle:(CXNetRequestInterfaceStyle)style
+         withInterface:(nonnull NSString *)interface
+             withParam:(nullable NSDictionary *)param
+      withSuccessBlock:(void(^_Nonnull)(NSDictionary *_Nullable response))success
+        withErrorBlock:(void(^_Nonnull)(NSError * _Nonnull error))failure;
 
 
 
