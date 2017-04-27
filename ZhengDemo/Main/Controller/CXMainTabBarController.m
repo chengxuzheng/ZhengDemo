@@ -50,7 +50,7 @@ typedef void(^MaskHiddenBlock)();
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor orangeColor];
 
     [self addSubviewInView];
 }

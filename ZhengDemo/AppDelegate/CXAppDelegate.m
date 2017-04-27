@@ -13,6 +13,7 @@
 
 #import "CXCuckoNavigtionController.h"
 #import "CXCuckooHomeViewController.h"
+#import "CXTouchIDViewController.h"
 
 #import "CXNetRequestManager.h"
 #import "CXTouchIDManager.h"
@@ -46,14 +47,12 @@
 //        
 //    }];
     
-    
-    [CXTouchIDManager openTouchIDWithLocalizedReason:@"启动" withFallBackTitle:@"确定" withSuccess:^{
-        NSLog(@"成功");
-    } withFailure:^{
-        NSLog(@"失败");
-    } withFallBack:^{
-        NSLog(@"点击了输入密码");
+    CXTouchIDViewController *touchVC = [[CXTouchIDViewController alloc] init];
+    [self.revealVC presentViewController:touchVC animated:YES completion:^{
+        
     }];
+    
+
 
 
     

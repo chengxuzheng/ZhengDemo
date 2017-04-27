@@ -13,6 +13,7 @@
 		0F9057561EADCD47006A77C6 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9057541EADCD47006A77C6 /* UIViewExt.m */; };
 		0F9057771EB1DF93006A77C6 /* CXNetRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9057761EB1DF93006A77C6 /* CXNetRequestManager.m */; };
 		0F90577B1EB1E093006A77C6 /* CXTouchIDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F90577A1EB1E093006A77C6 /* CXTouchIDManager.m */; };
+		0F9057821EB20424006A77C6 /* CXTouchIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9057811EB20424006A77C6 /* CXTouchIDViewController.m */; };
 		0FD789701EAAF87900574E64 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FD7896D1EAAF87900574E64 /* Info.plist */; };
 		0FD789711EAAF87900574E64 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FD7896E1EAAF87900574E64 /* Launch Screen.storyboard */; };
 		0FD789761EAAF95600574E64 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3407E1EA9A08D00122055 /* main.m */; };
@@ -63,6 +64,8 @@
 		0F9057761EB1DF93006A77C6 /* CXNetRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXNetRequestManager.m; sourceTree = "<group>"; };
 		0F9057791EB1E093006A77C6 /* CXTouchIDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTouchIDManager.h; sourceTree = "<group>"; };
 		0F90577A1EB1E093006A77C6 /* CXTouchIDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTouchIDManager.m; sourceTree = "<group>"; };
+		0F9057801EB20424006A77C6 /* CXTouchIDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTouchIDViewController.h; sourceTree = "<group>"; };
+		0F9057811EB20424006A77C6 /* CXTouchIDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTouchIDViewController.m; sourceTree = "<group>"; };
 		0FD7896C1EAAF87900574E64 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		0FD7896D1EAAF87900574E64 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FD7896E1EAAF87900574E64 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -172,6 +175,39 @@
 			path = CXTouchID;
 			sourceTree = "<group>";
 		};
+		0F90577C1EB20407006A77C6 /* TouchID */ = {
+			isa = PBXGroup;
+			children = (
+				0F90577D1EB20407006A77C6 /* Controller */,
+				0F90577E1EB20407006A77C6 /* Model */,
+				0F90577F1EB20407006A77C6 /* View */,
+			);
+			path = TouchID;
+			sourceTree = "<group>";
+		};
+		0F90577D1EB20407006A77C6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0F9057801EB20424006A77C6 /* CXTouchIDViewController.h */,
+				0F9057811EB20424006A77C6 /* CXTouchIDViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0F90577E1EB20407006A77C6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0F90577F1EB20407006A77C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		0FD789741EAAF91100574E64 /* SourceFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +296,7 @@
 				0FE340B01EA9A1D900122055 /* AppDelegate */,
 				0FE340B71EA9A80100122055 /* Base */,
 				0FE340E31EA9FA7400122055 /* Root */,
+				0F90577C1EB20407006A77C6 /* TouchID */,
 				0FE340BB1EA9A80100122055 /* Main */,
 				0FE340D91EA9DC1400122055 /* LeftSliding */,
 				0FE3407D1EA9A08D00122055 /* Supporting Files */,
@@ -640,6 +677,7 @@
 				0FE341571EAA0DD100122055 /* CXBaseTableViewController.m in Sources */,
 				0FE340E71EA9FA9000122055 /* CXRevealViewController.m in Sources */,
 				0F9057771EB1DF93006A77C6 /* CXNetRequestManager.m in Sources */,
+				0F9057821EB20424006A77C6 /* CXTouchIDViewController.m in Sources */,
 				0FE340D11EA9BC8B00122055 /* UIView+RMAdditions.m in Sources */,
 				0F9057551EADCD47006A77C6 /* UIView+UIViewController.m in Sources */,
 				0FE340B31EA9A1D900122055 /* CXAppDelegate.m in Sources */,
