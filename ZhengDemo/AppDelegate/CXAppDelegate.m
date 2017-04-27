@@ -14,7 +14,8 @@
 #import "CXCuckoNavigtionController.h"
 #import "CXCuckooHomeViewController.h"
 
-#import "CXNetRequest.h"
+#import "CXNetRequestManager.h"
+#import "CXTouchIDManager.h"
 
 @interface CXAppDelegate ()  <UNUserNotificationCenterDelegate>
 
@@ -26,7 +27,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    self.revealVC = [CXRevealViewController revealControllerWithFrontViewController:nil leftViewController:nil];
+    self.revealVC = [CXRevealViewController revealController];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = self.revealVC;
@@ -39,11 +40,22 @@
     //注册通知
     [self authorizationNotification];
         
-    [CXNetRequest uploadWithInterfaceStyle:CXNetRequestInterfaceStyleDebug withMineType:@"" withData:[NSData new] withInterface:@"" withParam:nil withSuccessBlock:^(NSDictionary * _Nullable response) {
-        
-    } withErrorBlock:^(NSError * _Nonnull error) {
-        
+//    [CXNetRequestManager uploadWithInterfaceStyle:CXNetRequestInterfaceStyleDebug withMineType:@"" withData:[NSData new] withInterface:@"" withParam:nil withSuccessBlock:^(NSDictionary * _Nullable response) {
+//        
+//    } withErrorBlock:^(NSError * _Nonnull error) {
+//        
+//    }];
+    
+    
+    [CXTouchIDManager openTouchIDWithLocalizedReason:@"启动" withFallBackTitle:@"确定" withSuccess:^{
+        NSLog(@"成功");
+    } withFailure:^{
+        NSLog(@"失败");
+    } withFallBack:^{
+        NSLog(@"点击了输入密码");
     }];
+
+
     
     return YES;
 

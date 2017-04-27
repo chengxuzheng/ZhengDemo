@@ -10,4 +10,7 @@
 
 @interface CXRevealViewController : PKRevealController
 
++ (instancetype)revealController;
+
+
 @end

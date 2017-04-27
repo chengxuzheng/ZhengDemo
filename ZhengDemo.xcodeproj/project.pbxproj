@@ -11,7 +11,8 @@
 		0F90574F1EADAA95006A77C6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F90574E1EADAA95006A77C6 /* AVFoundation.framework */; };
 		0F9057551EADCD47006A77C6 /* UIView+UIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9057521EADCD47006A77C6 /* UIView+UIViewController.m */; };
 		0F9057561EADCD47006A77C6 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9057541EADCD47006A77C6 /* UIViewExt.m */; };
-		0F90576A1EAF5845006A77C6 /* CXNetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9057691EAF5845006A77C6 /* CXNetRequest.m */; };
+		0F9057771EB1DF93006A77C6 /* CXNetRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9057761EB1DF93006A77C6 /* CXNetRequestManager.m */; };
+		0F90577B1EB1E093006A77C6 /* CXTouchIDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F90577A1EB1E093006A77C6 /* CXTouchIDManager.m */; };
 		0FD789701EAAF87900574E64 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FD7896D1EAAF87900574E64 /* Info.plist */; };
 		0FD789711EAAF87900574E64 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FD7896E1EAAF87900574E64 /* Launch Screen.storyboard */; };
 		0FD789761EAAF95600574E64 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3407E1EA9A08D00122055 /* main.m */; };
@@ -58,8 +59,10 @@
 		0F9057521EADCD47006A77C6 /* UIView+UIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIViewController.m"; sourceTree = "<group>"; };
 		0F9057531EADCD47006A77C6 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		0F9057541EADCD47006A77C6 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
-		0F9057681EAF5845006A77C6 /* CXNetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXNetRequest.h; sourceTree = "<group>"; };
-		0F9057691EAF5845006A77C6 /* CXNetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXNetRequest.m; sourceTree = "<group>"; };
+		0F9057751EB1DF93006A77C6 /* CXNetRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXNetRequestManager.h; sourceTree = "<group>"; };
+		0F9057761EB1DF93006A77C6 /* CXNetRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXNetRequestManager.m; sourceTree = "<group>"; };
+		0F9057791EB1E093006A77C6 /* CXTouchIDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTouchIDManager.h; sourceTree = "<group>"; };
+		0F90577A1EB1E093006A77C6 /* CXTouchIDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTouchIDManager.m; sourceTree = "<group>"; };
 		0FD7896C1EAAF87900574E64 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		0FD7896D1EAAF87900574E64 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FD7896E1EAAF87900574E64 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -142,13 +145,31 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
-		0F9057671EAF5845006A77C6 /* NetRequest */ = {
+		0F90576F1EB1DF7B006A77C6 /* CXKit */ = {
 			isa = PBXGroup;
 			children = (
-				0F9057681EAF5845006A77C6 /* CXNetRequest.h */,
-				0F9057691EAF5845006A77C6 /* CXNetRequest.m */,
+				0F9057781EB1DFD2006A77C6 /* CXTouchID */,
+				0F9057741EB1DF93006A77C6 /* CXNetRequest */,
 			);
-			path = NetRequest;
+			path = CXKit;
+			sourceTree = "<group>";
+		};
+		0F9057741EB1DF93006A77C6 /* CXNetRequest */ = {
+			isa = PBXGroup;
+			children = (
+				0F9057751EB1DF93006A77C6 /* CXNetRequestManager.h */,
+				0F9057761EB1DF93006A77C6 /* CXNetRequestManager.m */,
+			);
+			path = CXNetRequest;
+			sourceTree = "<group>";
+		};
+		0F9057781EB1DFD2006A77C6 /* CXTouchID */ = {
+			isa = PBXGroup;
+			children = (
+				0F9057791EB1E093006A77C6 /* CXTouchIDManager.h */,
+				0F90577A1EB1E093006A77C6 /* CXTouchIDManager.m */,
+			);
+			path = CXTouchID;
 			sourceTree = "<group>";
 		};
 		0FD789741EAAF91100574E64 /* SourceFile */ = {
@@ -235,7 +256,7 @@
 		0FE3407C1EA9A08D00122055 /* ZhengDemo */ = {
 			isa = PBXGroup;
 			children = (
-				0F9057671EAF5845006A77C6 /* NetRequest */,
+				0F90576F1EB1DF7B006A77C6 /* CXKit */,
 				0FE340B01EA9A1D900122055 /* AppDelegate */,
 				0FE340B71EA9A80100122055 /* Base */,
 				0FE340E31EA9FA7400122055 /* Root */,
@@ -613,11 +634,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F90577B1EB1E093006A77C6 /* CXTouchIDManager.m in Sources */,
 				0FD789761EAAF95600574E64 /* main.m in Sources */,
 				0FE340D51EA9C91D00122055 /* CXBaseViewController.m in Sources */,
 				0FE341571EAA0DD100122055 /* CXBaseTableViewController.m in Sources */,
 				0FE340E71EA9FA9000122055 /* CXRevealViewController.m in Sources */,
-				0F90576A1EAF5845006A77C6 /* CXNetRequest.m in Sources */,
+				0F9057771EB1DF93006A77C6 /* CXNetRequestManager.m in Sources */,
 				0FE340D11EA9BC8B00122055 /* UIView+RMAdditions.m in Sources */,
 				0F9057551EADCD47006A77C6 /* UIView+UIViewController.m in Sources */,
 				0FE340B31EA9A1D900122055 /* CXAppDelegate.m in Sources */,

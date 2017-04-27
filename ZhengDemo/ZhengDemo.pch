@@ -9,6 +9,11 @@
 #ifndef ZhengDemo_pch
 #define ZhengDemo_pch
 
+#import <PKRevealController.h>
+#import <Masonry.h>
+#import <MJExtension.h>
+#import <AFNetworking.h>
+
 #import "Constant.h"
 #import "UIViewController+YCCommon.h"
 #import "UIView+UIViewController.h"
@@ -43,9 +48,6 @@
 
 #define kDISPATCH_GLOBAL_QUEUE_DEFAULT(globalQueueBlock) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), globalQueueBlock);
 
-#import <PKRevealController.h>
-#import <Masonry.h>
-#import <MJExtension.h>
-#import <AFNetworking.h>
+
 
 #endif /* ZhengDemo_pch */

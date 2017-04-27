@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger, CXNetRequestInterfaceStyle) {
 /** 网络类型 WIFI或WWAN **/
 static NSString *_Nonnull const kNetStyleKey = @"netStyle";
 
-@interface CXNetRequest : NSObject
+@interface CXNetRequestManager : NSObject
 
 /**
  POST 请求

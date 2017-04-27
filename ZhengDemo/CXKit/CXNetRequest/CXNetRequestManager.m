@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Zheng. All rights reserved.
 //
 
-#import "CXNetRequest.h"
+#import "CXNetRequestManager.h"
 
 typedef void(^RequestSuccessBlock)(NSDictionary *_Nullable param);
 typedef void(^RequestErrorBlock)(NSError *_Nonnull error);
@@ -18,25 +18,25 @@ static NSString *const kDebugInterface = @"";
 static AFHTTPSessionManager *_manager;
 static AFNetworkReachabilityManager *_reachabilityManager;
 
-@interface CXNetRequest ()
+@interface CXNetRequestManager ()
 
 @end
 
-@implementation CXNetRequest
+@implementation CXNetRequestManager
 
 + (void)initialize {
     _manager = [AFHTTPSessionManager manager];
     _manager.responseSerializer = [AFJSONResponseSerializer serializer];
     _reachabilityManager = [AFNetworkReachabilityManager sharedManager];
     [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-    [CXNetRequest defaultManager];
+    [CXNetRequestManager defaultManager];
 }
 
 + (instancetype)defaultManager {
-    static CXNetRequest *manager = nil;
+    static CXNetRequestManager *manager = nil;
     static dispatch_once_t t;
     dispatch_once(&t, ^{
-        manager = [[CXNetRequest alloc] init];
+        manager = [[CXNetRequestManager alloc] init];
     });
     return manager;
 }
@@ -49,20 +49,20 @@ static AFNetworkReachabilityManager *_reachabilityManager;
     
     kINTERFACE_STYLE;
     
-    [CXNetRequest currentNetState:^(NSString *netStyle) {//netStyle WWAN或WIFI
-        [CXNetRequest showNetWorking];
+    [CXNetRequestManager currentNetState:^(NSString *netStyle) {//netStyle WWAN或WIFI
+        [CXNetRequestManager showNetWorking];
         
-        NSString *fullUrlStr = [CXNetRequest getFullUrlStrWithInterfaceStyle:style withInterface:interface];
+        NSString *fullUrlStr = [CXNetRequestManager getFullUrlStrWithInterfaceStyle:style withInterface:interface];
         
         [_manager POST:fullUrlStr parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            [CXNetRequest hideNetWorking];
+            [CXNetRequestManager hideNetWorking];
             NSMutableDictionary *newParam = [responseObject mutableCopy];
             [newParam setObject:netStyle forKey:kNetStyleKey];
             success([newParam copy]);
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            [CXNetRequest hideNetWorking];
+            [CXNetRequestManager hideNetWorking];
             failure(error);
         }];
     }];
@@ -76,20 +76,20 @@ static AFNetworkReachabilityManager *_reachabilityManager;
     
     kINTERFACE_STYLE;
     
-    [CXNetRequest currentNetState:^(NSString *netStyle) {//netStyle WWAN或WIFI
-        [CXNetRequest showNetWorking];
+    [CXNetRequestManager currentNetState:^(NSString *netStyle) {//netStyle WWAN或WIFI
+        [CXNetRequestManager showNetWorking];
         
-        NSString *fullUrlStr = [CXNetRequest getFullUrlStrWithInterfaceStyle:style withInterface:interface];
+        NSString *fullUrlStr = [CXNetRequestManager getFullUrlStrWithInterfaceStyle:style withInterface:interface];
             
         [_manager GET:fullUrlStr parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            [CXNetRequest hideNetWorking];
+            [CXNetRequestManager hideNetWorking];
             NSMutableDictionary *newParam = [responseObject mutableCopy];
             [newParam setObject:netStyle forKey:kNetStyleKey];
             success([newParam copy]);
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            [CXNetRequest hideNetWorking];
+            [CXNetRequestManager hideNetWorking];
             failure(error);
         }];
     }];
@@ -105,12 +105,12 @@ static AFNetworkReachabilityManager *_reachabilityManager;
     
     kINTERFACE_STYLE;
     
-    [CXNetRequest currentNetState:^(NSString *netStyle) {//netStyle WWAN或WIFI
+    [CXNetRequestManager currentNetState:^(NSString *netStyle) {//netStyle WWAN或WIFI
         
-        [CXNetRequest alertMessageWithNetStyle:netStyle withUseWWANNetUpload:^{
-            [CXNetRequest showNetWorking];
+        [CXNetRequestManager alertMessageWithNetStyle:netStyle withUseWWANNetUpload:^{
+            [CXNetRequestManager showNetWorking];
             
-            NSString *fullUrlStr = [CXNetRequest getFullUrlStrWithInterfaceStyle:style withInterface:interface];
+            NSString *fullUrlStr = [CXNetRequestManager getFullUrlStrWithInterfaceStyle:style withInterface:interface];
             
             [_manager POST:fullUrlStr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
                 NSDateFormatter *formatter = [NSDateFormatter new];
@@ -120,12 +120,12 @@ static AFNetworkReachabilityManager *_reachabilityManager;
             } progress:^(NSProgress * _Nonnull uploadProgress) {
                 
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                [CXNetRequest hideNetWorking];
+                [CXNetRequestManager hideNetWorking];
                 NSMutableDictionary *newParam = [responseObject mutableCopy];
                 [newParam setObject:netStyle forKey:kNetStyleKey];
                 success([newParam copy]);
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                [CXNetRequest hideNetWorking];
+                [CXNetRequestManager hideNetWorking];
                 failure(error);
             }];
         }];
@@ -138,7 +138,7 @@ static AFNetworkReachabilityManager *_reachabilityManager;
     [_reachabilityManager startMonitoring];
     [_reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (status == AFNetworkReachabilityStatusNotReachable) {
-            [CXNetRequest alertMessageWithNotReachable];
+            [CXNetRequestManager alertMessageWithNotReachable];
         } else {
             NSString *statusNameStr = (status == AFNetworkReachabilityStatusReachableViaWWAN)? @"WWAN": @"WIFI";
             netStyle(statusNameStr);
@@ -153,7 +153,7 @@ static AFNetworkReachabilityManager *_reachabilityManager;
 
 #pragma mark - 获取完成的请求地址
 + (NSString *)getFullUrlStrWithInterfaceStyle:(CXNetRequestInterfaceStyle)style withInterface:(NSString *)interface {
-    return  [[CXNetRequest getInterfaceWithStyle:style] stringByAppendingString:interface];
+    return  [[CXNetRequestManager getInterfaceWithStyle:style] stringByAppendingString:interface];
 }
 
 #pragma mark - 显示和隐藏状态栏网络加载

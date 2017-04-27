@@ -26,7 +26,7 @@ static CXLeftSlidingViewController *_leftSlidingVC;
     _leftSlidingVC = [[CXLeftSlidingViewController alloc] init];
 }
 
-+ (instancetype)revealControllerWithFrontViewController:(UIViewController *)frontViewController leftViewController:(UIViewController *)leftViewController {
++ (instancetype)revealController {
     return [super revealControllerWithFrontViewController:_mainVC leftViewController:_leftSlidingVC];
 }
 

@@ -54,7 +54,6 @@
         [UIApplication sharedApplication].keyWindow.rootViewController = cNavVC;
     }
     
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

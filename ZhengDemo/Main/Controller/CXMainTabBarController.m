@@ -15,6 +15,9 @@ typedef void(^MaskHiddenBlock)();
 @property (nonatomic, strong) UIView *maskView; //半透明遮挡视图
 @property (nonatomic, copy) MaskHiddenBlock maskHiddenBlock; //遮罩动画完成回调
 
+
+@property (nonatomic, strong) UILabel *label;
+
 @end
 
 @implementation CXMainTabBarController
@@ -46,33 +49,17 @@ typedef void(^MaskHiddenBlock)();
 #pragma mark - View LifeCycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self addSubviewInView];
     
-//    __block NSInteger time = 1500;
-//    [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
-//        time--;
-//        
-//        NSInteger minuteTime = time/60;
-//        NSInteger secondTime = time%60;
-//        
-//        if (time > 0) {
-//            kCX_LOG(@"%@", [NSString stringWithFormat:@"%ld:%ld",minuteTime,secondTime]);
-//        } else {
-//            
-//        }
-//    }];
-//
-//    NSTimer *myTimer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(timerFired:)userInfo:nil repeats:NO];
-//    
-//    [[NSRunLoop currentRunLoop] addTimer:myTimer forMode:NSDefaultRunLoopMode];
-}
+    self.view.backgroundColor = [UIColor whiteColor];
 
+    [self addSubviewInView];
+}
 
 
 #pragma mark - Subviews
 - (void)addSubviewInView {
     [self.view addSubview:self.maskView];
+    [self.view addSubview:self.label];
 }
 
 - (UIView *)maskView {
@@ -83,6 +70,14 @@ typedef void(^MaskHiddenBlock)();
         _maskView.hidden = YES;
     }
     return _maskView;
+}
+
+- (UILabel *)label {
+    if (!_label) {
+        _label = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x, self.view.center.y, 375, 30)];
+        _label.text = @"右滑出现侧边栏";
+    }
+    return _label;
 }
 
 #pragma mark - 内存警告
