@@ -19,8 +19,6 @@ static TouchBlock _success;
 static TouchBlock _failure;
 static TouchBlock _fallBack;
 
-
-
 /**
  LAErrorSystemCancel            锁屏或切换到其他APP
  LAErrorUserCancel              取消验证
@@ -32,7 +30,6 @@ static TouchBlock _fallBack;
  */
 
 @interface CXTouchIDManager ()
-
 
 @end
 
@@ -67,40 +64,26 @@ static TouchBlock _fallBack;
             _success();
             
         } else {
-            switch (error.code) {
-//                case LAErrorSystemCancel: {
-//                    //锁屏或切换到其他APP
-//                    
-//                }
-//                    break;
-//                case LAErrorUserCancel: {
-//                    //取消验证
-//
-//                }
-//                    break;
-                
+            switch (error.code) {                
                 //系统样式下列无效 直接弹出密码验证
-                    
                 case LAErrorUserFallback: {
-                    kDISPATCH_MAIN_THREAD(^{
+                    dispatch_async(dispatch_get_main_queue(), ^{
                         _fallBack();
                     });
                 }
                     break;
                 case LAErrorAuthenticationFailed: {
-                    kDISPATCH_MAIN_THREAD(^{
+                    dispatch_async(dispatch_get_main_queue(), ^{
                         _failure();
                     });
                 }
                     break;
-                    
                 case LAErrorTouchIDLockout: {
                     _isBiometrics = NO;
                     _isLockout = YES;
                     [CXTouchIDManager openTouchID];
                 }
                     break;
-
                 default: {
                     //其他
                 }
@@ -118,8 +101,8 @@ static TouchBlock _fallBack;
     _success = success;
     _failure = failure;
     _fallBack = fallBack;
-    _context.localizedFallbackTitle = title;
     _reason = reason;
+    _context.localizedFallbackTitle = title;
     _isBiometrics = YES;
     [CXTouchIDManager openTouchID];
 }
@@ -129,6 +112,9 @@ static TouchBlock _fallBack;
 + (BOOL)validationSupportBiometricsTouchID {
     NSError *error = nil;
     BOOL isCan = [_context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error];
+    if (error.code == LAErrorTouchIDLockout) {
+        isCan = !isCan;
+    }
     return isCan;
 }
 

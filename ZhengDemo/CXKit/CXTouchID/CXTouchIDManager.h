@@ -10,23 +10,30 @@
 
 @interface CXTouchIDManager : NSObject
 
-/** 开启指纹验证和密码验证 系统样式**/
+
+/** 验证TouchID是否可用 **/
++ (BOOL)validationSupportBiometricsTouchID;
+
+
+/** 开启TouchID验证和密码验证 系统样式**/
 + (void)openTouchID;
 
 
-
 /**
- <#Description#>
-
- @param reason <#reason description#>
- @param title <#title description#>
- @param success <#success description#>
- @param failure <#failure description#>
+ 开启TouchID验证
+ 
+ @param reason 使用Touch的描述
+ @param title fallback按钮的标题
+ @param success 成功回调
+ @param failure 失败回调
+ @param fallBack fallback回调
  */
 + (void)openTouchIDWithLocalizedReason:(nonnull NSString *)reason
                      withFallBackTitle:(nonnull NSString *)title
                            withSuccess:(void(^_Nonnull)())success
                            withFailure:(void(^_Nonnull)())failure
                           withFallBack:(void(^_Nonnull)())fallBack;
+
+
 
 @end

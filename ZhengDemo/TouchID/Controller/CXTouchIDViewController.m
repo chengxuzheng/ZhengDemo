@@ -27,18 +27,27 @@
 }
 
 - (void)touchID {
+    
+    BOOL isCan = [CXTouchIDManager validationSupportBiometricsTouchID];
+    if (isCan) {
+        NSLog(@"TouchID 可以使用");
+    } else {
+        NSLog(@"TouchID 不可以使用");
+    }
+    
     [CXTouchIDManager openTouchIDWithLocalizedReason:@"启动" withFallBackTitle:@"确定" withSuccess:^{
-        NSLog(@"成功");
+        NSLog(@"验证成功");
         [self dismissViewControllerAnimated:YES completion:^{
             
         }];
     } withFailure:^{
-        NSLog(@"失败");
+        NSLog(@"验证失败");
         [self touchID];
         
     } withFallBack:^{
         NSLog(@"点击了输入密码");
     }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
