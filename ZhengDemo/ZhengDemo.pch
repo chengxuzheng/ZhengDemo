@@ -20,10 +20,15 @@
 #import "UIViewExt.h"
 
 #define kCX_Scale(W) (375.f/kSCREEN_WIDTH)*W
+
 #define kRGB_COLOR(R,G,B,A) [UIColor colorWithRed:(R)/255.f green:(G)/255.f blue:(B)/255.f alpha:A]
+
 #define kIMAGE(imageName) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
 
 #define IOS_VERSION_10 (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)?(YES):(NO)
+
+#define IOS_VERSION_9 (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_8_x_Max)?(YES):(NO)
+
 
 #ifdef DEBUG
 #define kCX_LOG(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
@@ -32,6 +37,7 @@
 #define kCX_LOG(...)
 #define kINTERFACE_STYLE style = CXNetRequestInterfaceStyleRelease
 #endif
+
 
 #define kCX_FONT(R) [UIFont systemFontOfSize:R]
 

@@ -17,6 +17,7 @@
 
 #import "CXNetRequestManager.h"
 #import "CXTouchIDManager.h"
+#import "CXForceTouchManager.h"
 
 @interface CXAppDelegate ()  <UNUserNotificationCenterDelegate>
 
@@ -34,10 +35,6 @@
     self.window.rootViewController = self.revealVC;
     [self.window makeKeyAndVisible];
     
-//    CXCuckooHomeViewController *chVC = [[CXCuckooHomeViewController alloc] init];
-//    CXCuckoNavigtionController *cNavVC = [[CXCuckoNavigtionController alloc] initWithRootViewController:chVC];
-//    self.window.rootViewController = cNavVC;
-    
     //注册通知
     [self authorizationNotification];
         
@@ -47,19 +44,43 @@
 //        
 //    }];
     
-    CXTouchIDViewController *touchVC = [[CXTouchIDViewController alloc] init];
-    [self.revealVC presentViewController:touchVC animated:YES completion:^{
-        
-    }];
+//    CXTouchIDViewController *touchVC = [[CXTouchIDViewController alloc] init];
+//    [self.revealVC presentViewController:touchVC animated:YES completion:^{
+//        
+//    }];
     
-
-
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(kNotificationForceTouch1Action) name:@"kNotificationForceTouch1" object:nil];
+    
+    if([CXForceTouchManager checkForceTouchCapabilityAvailable]) {
+        [CXForceTouchManager makeShortcutItems:^(CXForceTouchManager *manager) {
+            manager.addItem(@"kNotificationForceTouch1",@"按键一",nil,@"add");
+            manager.addItem(@"kNotificationForceTouch2",@"按键二",nil,@"addTime");
+            manager.addItem(@"kNotificationForceTouch3",@"按键三",nil,@"clock");
+            manager.addItem(@"kNotificationForceTouch4",@"按键四",nil,@"crown");
+            manager.finished();
+        }];
+    } else {
+        kCX_LOG(@"Force Touch 不可用");
+    }
     
     return YES;
 
 }
 
+- (void)kNotificationForceTouch1Action {
+    CXCuckooHomeViewController *chVC = [[CXCuckooHomeViewController alloc] init];
+    CXCuckoNavigtionController *cNavVC = [[CXCuckoNavigtionController alloc] initWithRootViewController:chVC];
+    [self.window.rootViewController presentViewController:cNavVC animated:YES completion:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"kNotificationForceTouch1" object:nil];
+}
+
+//shortcut item did selected
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+    [CXForceTouchManager didSelectItemWithType:shortcutItem.type];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 

@@ -14,6 +14,7 @@
 		0F9057771EB1DF93006A77C6 /* CXNetRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9057761EB1DF93006A77C6 /* CXNetRequestManager.m */; };
 		0F90577B1EB1E093006A77C6 /* CXTouchIDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F90577A1EB1E093006A77C6 /* CXTouchIDManager.m */; };
 		0F9057821EB20424006A77C6 /* CXTouchIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9057811EB20424006A77C6 /* CXTouchIDViewController.m */; };
+		0F9057881EB31D93006A77C6 /* CXForceTouchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9057871EB31D92006A77C6 /* CXForceTouchManager.m */; };
 		0FD789701EAAF87900574E64 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FD7896D1EAAF87900574E64 /* Info.plist */; };
 		0FD789711EAAF87900574E64 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FD7896E1EAAF87900574E64 /* Launch Screen.storyboard */; };
 		0FD789761EAAF95600574E64 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3407E1EA9A08D00122055 /* main.m */; };
@@ -66,6 +67,8 @@
 		0F90577A1EB1E093006A77C6 /* CXTouchIDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTouchIDManager.m; sourceTree = "<group>"; };
 		0F9057801EB20424006A77C6 /* CXTouchIDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTouchIDViewController.h; sourceTree = "<group>"; };
 		0F9057811EB20424006A77C6 /* CXTouchIDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTouchIDViewController.m; sourceTree = "<group>"; };
+		0F9057861EB31D92006A77C6 /* CXForceTouchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXForceTouchManager.h; sourceTree = "<group>"; };
+		0F9057871EB31D92006A77C6 /* CXForceTouchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXForceTouchManager.m; sourceTree = "<group>"; };
 		0FD7896C1EAAF87900574E64 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		0FD7896D1EAAF87900574E64 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FD7896E1EAAF87900574E64 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -151,6 +154,7 @@
 		0F90576F1EB1DF7B006A77C6 /* CXKit */ = {
 			isa = PBXGroup;
 			children = (
+				0F9057851EB31D80006A77C6 /* CXForceTouchManager */,
 				0F9057781EB1DFD2006A77C6 /* CXTouchID */,
 				0F9057741EB1DF93006A77C6 /* CXNetRequest */,
 			);
@@ -206,6 +210,15 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0F9057851EB31D80006A77C6 /* CXForceTouchManager */ = {
+			isa = PBXGroup;
+			children = (
+				0F9057861EB31D92006A77C6 /* CXForceTouchManager.h */,
+				0F9057871EB31D92006A77C6 /* CXForceTouchManager.m */,
+			);
+			path = CXForceTouchManager;
 			sourceTree = "<group>";
 		};
 		0FD789741EAAF91100574E64 /* SourceFile */ = {
@@ -675,6 +688,7 @@
 				0FD789761EAAF95600574E64 /* main.m in Sources */,
 				0FE340D51EA9C91D00122055 /* CXBaseViewController.m in Sources */,
 				0FE341571EAA0DD100122055 /* CXBaseTableViewController.m in Sources */,
+				0F9057881EB31D93006A77C6 /* CXForceTouchManager.m in Sources */,
 				0FE340E71EA9FA9000122055 /* CXRevealViewController.m in Sources */,
 				0F9057771EB1DF93006A77C6 /* CXNetRequestManager.m in Sources */,
 				0F9057821EB20424006A77C6 /* CXTouchIDViewController.m in Sources */,
